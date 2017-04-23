@@ -35,6 +35,7 @@
 		6F3789D31EAC5D6700FF4B35 /* TETask.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789D21EAC5D6700FF4B35 /* TETask.m */; };
 		6F3789D61EAC5D7600FF4B35 /* TELocationList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789D51EAC5D7600FF4B35 /* TELocationList.m */; };
 		6F3789D91EAC600D00FF4B35 /* TEActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789D81EAC600D00FF4B35 /* TEActivity.m */; };
+		6F3789DF1EACC4DB00FF4B35 /* TEMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789DE1EACC4DB00FF4B35 /* TEMemoryCache.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,11 @@
 		6F3789D51EAC5D7600FF4B35 /* TELocationList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TELocationList.m; sourceTree = "<group>"; };
 		6F3789D71EAC600D00FF4B35 /* TEActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEActivity.h; sourceTree = "<group>"; };
 		6F3789D81EAC600D00FF4B35 /* TEActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEActivity.m; sourceTree = "<group>"; };
+		6F3789DA1EACC1EC00FF4B35 /* TEImageProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEImageProvider.h; sourceTree = "<group>"; };
+		6F3789DB1EACC25F00FF4B35 /* TEDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEDataProvider.h; sourceTree = "<group>"; };
+		6F3789DC1EACC4BE00FF4B35 /* TEObjectCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEObjectCache.h; sourceTree = "<group>"; };
+		6F3789DD1EACC4DB00FF4B35 /* TEMemoryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEMemoryCache.h; sourceTree = "<group>"; };
+		6F3789DE1EACC4DB00FF4B35 /* TEMemoryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEMemoryCache.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,6 +310,11 @@
 			children = (
 				6F3789C01EAC59C700FF4B35 /* TEAPIDataProvider.h */,
 				6F3789C11EAC59C700FF4B35 /* TEAPIDataProvider.m */,
+				6F3789DA1EACC1EC00FF4B35 /* TEImageProvider.h */,
+				6F3789DB1EACC25F00FF4B35 /* TEDataProvider.h */,
+				6F3789DC1EACC4BE00FF4B35 /* TEObjectCache.h */,
+				6F3789DD1EACC4DB00FF4B35 /* TEMemoryCache.h */,
+				6F3789DE1EACC4DB00FF4B35 /* TEMemoryCache.m */,
 			);
 			path = DataProvider;
 			sourceTree = "<group>";
@@ -454,6 +465,7 @@
 				6F3789D31EAC5D6700FF4B35 /* TETask.m in Sources */,
 				6F3789AE1EAC573600FF4B35 /* TETaskTableViewCell.m in Sources */,
 				6F37899B1EAC533400FF4B35 /* TELocationListViewController.m in Sources */,
+				6F3789DF1EACC4DB00FF4B35 /* TEMemoryCache.m in Sources */,
 				6F3789CD1EAC5D2100FF4B35 /* TELocation.m in Sources */,
 				6F3789A91EAC572000FF4B35 /* TEProfileTableViewCell.m in Sources */,
 				6F3789B21EAC580200FF4B35 /* TEHelper.m in Sources */,
