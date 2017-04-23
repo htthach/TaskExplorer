@@ -110,6 +110,6 @@ static NSString * const TELocationTableViewCellIdentifier = @"TELocationTableVie
     return UITableViewAutomaticDimension;
 }
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [TELocationTableViewCell defaultHeight];
+    return [TELocationTableViewCell defaultHeight]; //just estimation, we'll use UITableViewAutomaticDimension for actual height
 }
 @end

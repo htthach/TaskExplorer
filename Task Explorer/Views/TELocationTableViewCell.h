@@ -18,7 +18,7 @@
 
 
 /**
- Default height for this cell. Used for cell height estimation
+ Default height for this cell. Used for cell height estimation only.
 
  @return Default height for this cell. Used for cell height estimation
  */

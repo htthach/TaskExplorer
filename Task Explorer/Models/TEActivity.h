@@ -7,6 +7,8 @@
 //
 
 #import "TEBaseModel.h"
+@class TETask;
+@class TEProfile;
 
 @interface TEActivity : TEBaseModel
 @property (nonatomic, copy) NSNumber    *taskId;
@@ -15,4 +17,15 @@
 @property (nonatomic, copy) NSString    *message;
 @property (nonatomic, copy) NSString    *createdAt;
 @property (nonatomic, copy) NSString    *event;
+
+@property (nonatomic, strong) TETask    *task;
+@property (nonatomic, strong) TEProfile *profile;
+
+
+/**
+ Message that was populated with proper info on task and profile
+
+ @return Message that was populated with proper info on task and profile
+ */
+-(NSString*) populatedActivityMessage;
 @end

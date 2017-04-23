@@ -1,23 +1,22 @@
 //
-//  TEProfileTableViewCell.m
+//  TEMapTableViewCell.m
 //  Task Explorer
 //
-//  Created by Tinh Thach Hinh on 23/4/17.
+//  Created by Tinh Thach Hinh on 24/4/17.
 //  Copyright © 2017 Hinh Tinh Thach. All rights reserved.
 //
 
-#import "TEProfileTableViewCell.h"
+#import "TEMapTableViewCell.h"
 
-@implementation TEProfileTableViewCell
+@implementation TEMapTableViewCell
 /**
  *  Convenient method to return the nib of this cell class in main bundle
  *
- *  @return the nib of TEProfileTableViewCell
+ *  @return the nib of TEMapTableViewCell
  */
 + (UINib *)nib{
-    return [UINib nibWithNibName:NSStringFromClass([TEProfileTableViewCell class]) bundle:nil];
+    return [UINib nibWithNibName:NSStringFromClass([TEMapTableViewCell class]) bundle:nil];
 }
-
 
 - (void)awakeFromNib {
     [super awakeFromNib];
