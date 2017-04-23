@@ -15,6 +15,13 @@
 		6F3789851EAC45C600FF4B35 /* Task_ExplorerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789841EAC45C600FF4B35 /* Task_ExplorerUITests.m */; };
 		6F37899B1EAC533400FF4B35 /* TELocationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F37899A1EAC533400FF4B35 /* TELocationListViewController.m */; };
 		6F37899E1EAC558D00FF4B35 /* TEUITheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F37899D1EAC558D00FF4B35 /* TEUITheme.m */; };
+		6F3789A41EAC570800FF4B35 /* TELocationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789A21EAC570800FF4B35 /* TELocationTableViewCell.m */; };
+		6F3789A51EAC570800FF4B35 /* TELocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F3789A31EAC570800FF4B35 /* TELocationTableViewCell.xib */; };
+		6F3789A91EAC572000FF4B35 /* TEProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789A71EAC572000FF4B35 /* TEProfileTableViewCell.m */; };
+		6F3789AA1EAC572000FF4B35 /* TEProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F3789A81EAC572000FF4B35 /* TEProfileTableViewCell.xib */; };
+		6F3789AE1EAC573600FF4B35 /* TETaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789AC1EAC573600FF4B35 /* TETaskTableViewCell.m */; };
+		6F3789AF1EAC573600FF4B35 /* TETaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F3789AD1EAC573600FF4B35 /* TETaskTableViewCell.xib */; };
+		6F3789B21EAC580200FF4B35 /* TEHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789B11EAC580200FF4B35 /* TEHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +59,17 @@
 		6F37899A1EAC533400FF4B35 /* TELocationListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TELocationListViewController.m; sourceTree = "<group>"; };
 		6F37899C1EAC558D00FF4B35 /* TEUITheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEUITheme.h; sourceTree = "<group>"; };
 		6F37899D1EAC558D00FF4B35 /* TEUITheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEUITheme.m; sourceTree = "<group>"; };
+		6F3789A11EAC570800FF4B35 /* TELocationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TELocationTableViewCell.h; sourceTree = "<group>"; };
+		6F3789A21EAC570800FF4B35 /* TELocationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TELocationTableViewCell.m; sourceTree = "<group>"; };
+		6F3789A31EAC570800FF4B35 /* TELocationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TELocationTableViewCell.xib; sourceTree = "<group>"; };
+		6F3789A61EAC572000FF4B35 /* TEProfileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEProfileTableViewCell.h; sourceTree = "<group>"; };
+		6F3789A71EAC572000FF4B35 /* TEProfileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEProfileTableViewCell.m; sourceTree = "<group>"; };
+		6F3789A81EAC572000FF4B35 /* TEProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TEProfileTableViewCell.xib; sourceTree = "<group>"; };
+		6F3789AB1EAC573600FF4B35 /* TETaskTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TETaskTableViewCell.h; sourceTree = "<group>"; };
+		6F3789AC1EAC573600FF4B35 /* TETaskTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TETaskTableViewCell.m; sourceTree = "<group>"; };
+		6F3789AD1EAC573600FF4B35 /* TETaskTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TETaskTableViewCell.xib; sourceTree = "<group>"; };
+		6F3789B01EAC580200FF4B35 /* TEHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEHelper.h; sourceTree = "<group>"; };
+		6F3789B11EAC580200FF4B35 /* TEHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +184,8 @@
 			children = (
 				6F37899C1EAC558D00FF4B35 /* TEUITheme.h */,
 				6F37899D1EAC558D00FF4B35 /* TEUITheme.m */,
+				6F3789B01EAC580200FF4B35 /* TEHelper.h */,
+				6F3789B11EAC580200FF4B35 /* TEHelper.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -180,6 +200,8 @@
 		6F3789961EAC524800FF4B35 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				6F37899F1EAC56E100FF4B35 /* DataParser */,
+				6F3789A01EAC56E100FF4B35 /* DataProvider */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -194,8 +216,31 @@
 		6F3789981EAC524800FF4B35 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6F3789A11EAC570800FF4B35 /* TELocationTableViewCell.h */,
+				6F3789A21EAC570800FF4B35 /* TELocationTableViewCell.m */,
+				6F3789A31EAC570800FF4B35 /* TELocationTableViewCell.xib */,
+				6F3789A61EAC572000FF4B35 /* TEProfileTableViewCell.h */,
+				6F3789A71EAC572000FF4B35 /* TEProfileTableViewCell.m */,
+				6F3789A81EAC572000FF4B35 /* TEProfileTableViewCell.xib */,
+				6F3789AB1EAC573600FF4B35 /* TETaskTableViewCell.h */,
+				6F3789AC1EAC573600FF4B35 /* TETaskTableViewCell.m */,
+				6F3789AD1EAC573600FF4B35 /* TETaskTableViewCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		6F37899F1EAC56E100FF4B35 /* DataParser */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataParser;
+			sourceTree = "<group>";
+		};
+		6F3789A01EAC56E100FF4B35 /* DataProvider */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataProvider;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,8 +349,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F3789AA1EAC572000FF4B35 /* TEProfileTableViewCell.xib in Resources */,
 				6F37896F1EAC45C600FF4B35 /* LaunchScreen.storyboard in Resources */,
 				6F37896C1EAC45C600FF4B35 /* Assets.xcassets in Resources */,
+				6F3789A51EAC570800FF4B35 /* TELocationTableViewCell.xib in Resources */,
+				6F3789AF1EAC573600FF4B35 /* TETaskTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,9 +378,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F3789A41EAC570800FF4B35 /* TELocationTableViewCell.m in Sources */,
 				6F37899E1EAC558D00FF4B35 /* TEUITheme.m in Sources */,
 				6F3789641EAC45C600FF4B35 /* AppDelegate.m in Sources */,
+				6F3789AE1EAC573600FF4B35 /* TETaskTableViewCell.m in Sources */,
 				6F37899B1EAC533400FF4B35 /* TELocationListViewController.m in Sources */,
+				6F3789A91EAC572000FF4B35 /* TEProfileTableViewCell.m in Sources */,
+				6F3789B21EAC580200FF4B35 /* TEHelper.m in Sources */,
 				6F3789611EAC45C600FF4B35 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

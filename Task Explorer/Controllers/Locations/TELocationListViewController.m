@@ -7,6 +7,9 @@
 //
 
 #import "TELocationListViewController.h"
+#import "TELocationTableViewCell.h"
+
+static NSString * const TELocationTableViewCellIdentifier = @"TELocationTableViewCellIdentifier";
 
 @interface TELocationListViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView      *tableView;
@@ -50,6 +53,7 @@
     self.tableView.backgroundColor = [UIColor whiteColor];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    [self.tableView registerNib:[TELocationTableViewCell nib] forCellReuseIdentifier:TELocationTableViewCellIdentifier];
 }
 
 #pragma mark - table view delegate
