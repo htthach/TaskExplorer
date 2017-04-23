@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  TELocationListViewController.h
 //  Task Explorer
 //
 //  Created by Tinh Thach Hinh on 23/4/17.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface TELocationListViewController : UIViewController
 
 
 @end

@@ -7,16 +7,27 @@
 //
 
 #import "AppDelegate.h"
-
+#import "TELocationListViewController.h"
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
 
+-(UIViewController*) demoHome{
+    //For now the first thing user see is the Search Page under a navigation controller
+    TELocationListViewController *locationListVC = [TELocationListViewController new];
+    return [[UINavigationController alloc] initWithRootViewController:locationListVC];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [UIWindow new];
+    
+    //set home page for this code demo
+    [self.window setRootViewController:[self demoHome]];
+    
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

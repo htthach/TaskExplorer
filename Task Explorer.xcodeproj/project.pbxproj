@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		6F3789611EAC45C600FF4B35 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789601EAC45C600FF4B35 /* main.m */; };
 		6F3789641EAC45C600FF4B35 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789631EAC45C600FF4B35 /* AppDelegate.m */; };
-		6F3789671EAC45C600FF4B35 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789661EAC45C600FF4B35 /* ViewController.m */; };
 		6F37896C1EAC45C600FF4B35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F37896B1EAC45C600FF4B35 /* Assets.xcassets */; };
 		6F37896F1EAC45C600FF4B35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F37896D1EAC45C600FF4B35 /* LaunchScreen.storyboard */; };
 		6F37897A1EAC45C600FF4B35 /* Task_ExplorerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789791EAC45C600FF4B35 /* Task_ExplorerTests.m */; };
 		6F3789851EAC45C600FF4B35 /* Task_ExplorerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789841EAC45C600FF4B35 /* Task_ExplorerUITests.m */; };
+		6F37899B1EAC533400FF4B35 /* TELocationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F37899A1EAC533400FF4B35 /* TELocationListViewController.m */; };
+		6F37899E1EAC558D00FF4B35 /* TEUITheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F37899D1EAC558D00FF4B35 /* TEUITheme.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +39,6 @@
 		6F3789601EAC45C600FF4B35 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6F3789621EAC45C600FF4B35 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6F3789631EAC45C600FF4B35 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6F3789651EAC45C600FF4B35 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		6F3789661EAC45C600FF4B35 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6F37896B1EAC45C600FF4B35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F37896E1EAC45C600FF4B35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6F3789701EAC45C600FF4B35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +48,10 @@
 		6F3789801EAC45C600FF4B35 /* Task ExplorerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Task ExplorerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F3789841EAC45C600FF4B35 /* Task_ExplorerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Task_ExplorerUITests.m; sourceTree = "<group>"; };
 		6F3789861EAC45C600FF4B35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6F3789991EAC533400FF4B35 /* TELocationListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TELocationListViewController.h; sourceTree = "<group>"; };
+		6F37899A1EAC533400FF4B35 /* TELocationListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TELocationListViewController.m; sourceTree = "<group>"; };
+		6F37899C1EAC558D00FF4B35 /* TEUITheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEUITheme.h; sourceTree = "<group>"; };
+		6F37899D1EAC558D00FF4B35 /* TEUITheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEUITheme.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +102,14 @@
 		6F37895E1EAC45C600FF4B35 /* Task Explorer */ = {
 			isa = PBXGroup;
 			children = (
+				6F3789921EAC524800FF4B35 /* Controllers */,
+				6F3789941EAC524800FF4B35 /* Helpers */,
+				6F3789951EAC524800FF4B35 /* Models */,
+				6F3789961EAC524800FF4B35 /* Services */,
+				6F3789971EAC524800FF4B35 /* Settings */,
+				6F3789981EAC524800FF4B35 /* Views */,
 				6F3789621EAC45C600FF4B35 /* AppDelegate.h */,
 				6F3789631EAC45C600FF4B35 /* AppDelegate.m */,
-				6F3789651EAC45C600FF4B35 /* ViewController.h */,
-				6F3789661EAC45C600FF4B35 /* ViewController.m */,
 				6F37896B1EAC45C600FF4B35 /* Assets.xcassets */,
 				6F37896D1EAC45C600FF4B35 /* LaunchScreen.storyboard */,
 				6F3789701EAC45C600FF4B35 /* Info.plist */,
@@ -135,6 +142,60 @@
 				6F3789861EAC45C600FF4B35 /* Info.plist */,
 			);
 			path = "Task ExplorerUITests";
+			sourceTree = "<group>";
+		};
+		6F3789921EAC524800FF4B35 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6F3789931EAC524800FF4B35 /* Locations */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		6F3789931EAC524800FF4B35 /* Locations */ = {
+			isa = PBXGroup;
+			children = (
+				6F3789991EAC533400FF4B35 /* TELocationListViewController.h */,
+				6F37899A1EAC533400FF4B35 /* TELocationListViewController.m */,
+			);
+			path = Locations;
+			sourceTree = "<group>";
+		};
+		6F3789941EAC524800FF4B35 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6F37899C1EAC558D00FF4B35 /* TEUITheme.h */,
+				6F37899D1EAC558D00FF4B35 /* TEUITheme.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		6F3789951EAC524800FF4B35 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6F3789961EAC524800FF4B35 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		6F3789971EAC524800FF4B35 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		6F3789981EAC524800FF4B35 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,8 +330,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F3789671EAC45C600FF4B35 /* ViewController.m in Sources */,
+				6F37899E1EAC558D00FF4B35 /* TEUITheme.m in Sources */,
 				6F3789641EAC45C600FF4B35 /* AppDelegate.m in Sources */,
+				6F37899B1EAC533400FF4B35 /* TELocationListViewController.m in Sources */,
 				6F3789611EAC45C600FF4B35 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
