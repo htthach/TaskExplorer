@@ -29,10 +29,10 @@
  */
 -(instancetype) initWithArray:(NSArray*) array error:(NSError**) error;
 
-#pragma mark - to be inherit
+#pragma mark - to be override
 
 /**
- Return the key map between json key vs this object property name. By default we set property name same as json tag.
+ Return the key map between json key vs this object property name. By default we set property name using camel case and JSON tag from server as snake case.
  Child class can override this if there is mismatch between object property name and json tag.
  
  @return the key map between json key vs this object property name

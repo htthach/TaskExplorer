@@ -47,7 +47,7 @@ static NSString * const TE_PARSING_ERROR_DOMAIN    = @"com.taskexplorer.ios.mode
     }
     return self;
 }
-#pragma mark - to be inherit
+#pragma mark - to be override
 
 /**
  Return the key map between json key vs this object property name. By default we set property name using camel case and JSON tag from server as snake case.

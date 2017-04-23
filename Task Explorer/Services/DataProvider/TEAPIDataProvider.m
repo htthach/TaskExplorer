@@ -12,6 +12,15 @@
 #import "TEHelper.h"
 #import "TEMemoryCache.h"
 
+#import "TELocationList.h"
+#import "TELocation.h"
+
+static NSString * const TE_ENDPOINT_LOCATION_LIST   = @"locations";
+static NSString * const TE_ENDPOINT_LOCATION        = @"location";
+static NSString * const TE_ENDPOINT_PROFILE         = @"profile";
+static NSString * const TE_ENDPOINT_TASK            = @"task";
+static NSString * const TE_ENDPOINT_RESPONSE_TYPE   = @"json";
+
 static int const TE_NETWORK_ERROR_CODE_INVALID_PARAM        = 400;
 static NSString * const TE_NETWORK_ERROR_DOMAIN             = @"com.taskexplorer.ios.network";
 
@@ -26,9 +35,9 @@ static NSString * const TE_NETWORK_ERROR_DOMAIN             = @"com.taskexplorer
 @implementation TEAPIDataProvider
 
 /**
- Convenient factory method to return a shared standard Flickr API data provider.
+ Convenient factory method to return a shared standard API data provider.
  
- @return an singleton instance of FEFlickrAPIDataProvider
+ @return an singleton instance of TEAPIDataProvider
  */
 +(instancetype) sharedDefaultProvider{
     static TEAPIDataProvider *sharedInstance = nil;
@@ -229,29 +238,48 @@ static NSString * const TE_NETWORK_ERROR_DOMAIN             = @"com.taskexplorer
     return [NSURL URLWithString:endpoint relativeToURL:self.baseURL];
 }
 
+
 /**
- Constructing the endpoint following Flickr API documentation. Without the base url of course E.g https://api.flickr.com/services/rest/?method=flickr.test.echo&name=value
- 
- @param param query param to construct the end point
- @return the endpoint following Flickr API documentation
+ Construct endpoint with components, queries and response type
+
+ @param components components to add to endpoint
+ @param queries query dictionary to add to endpoint (name:value)
+ @param responseType response type at end of endpoint path
+ @return endpoint with components, queries and response type
  */
--(NSString*) endPointForParams:(NSDictionary<NSString *, NSString *>*) param{
-    NSURLComponents *components = [NSURLComponents componentsWithString:@"rest"];
+-(NSString*) endPointWithComponent:(NSArray<NSString*>*) components queries:(NSDictionary<NSString *, NSString *>*) queries responseType:(NSString*) responseType{
+    NSString *endpoint = [NSString string];
+    //add components
+    for (int i = 0; i < [components count]; i++) {
+        endpoint = [endpoint stringByAppendingPathComponent:components[i]];
+    }
+    
+    //add response type
+    if (![TEHelper isEmptyString:responseType]) {
+        endpoint = [endpoint stringByAppendingString:[NSString stringWithFormat:@".%@", responseType]];
+    }
+    
+    NSURLComponents *fullEndpoint = [NSURLComponents componentsWithString:endpoint];
+    
+    //add queries
     NSMutableArray *queryItems = [NSMutableArray array];
-    NSArray *sortedKeys = [[param allKeys] sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+    NSArray *sortedKeys = [[queries allKeys] sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
         return [(NSString*) obj1 compare:(NSString*) obj2];
     }];
     
     for (NSString *key in sortedKeys) {
-        NSString *value = param[key];
+        NSString *value = queries[key];
         if (![TEHelper isEmptyString:key] && ![TEHelper isEmptyString:value]) {
             //only add query item if valid string
-            [queryItems addObject:[NSURLQueryItem queryItemWithName:key value:param[key]]];
+            [queryItems addObject:[NSURLQueryItem queryItemWithName:key
+                                                              value:queries[key]
+                                   ]
+             ];
         }
     }
-    
-    components.queryItems = queryItems;
-    return components.URL.absoluteString;
+    fullEndpoint.queryItems = queryItems;
+
+    return fullEndpoint.URL.absoluteString;
 }
 
 /**
@@ -269,17 +297,65 @@ static NSString * const TE_NETWORK_ERROR_DOMAIN             = @"com.taskexplorer
  @return an error object to describe the "invalid request param" error
  */
 +(NSError*) invalidRequestParamError:(NSString*) reason{
-    NSError *error = [[NSError alloc] initWithDomain:TE_NETWORK_ERROR_DOMAIN code:TE_NETWORK_ERROR_CODE_INVALID_PARAM userInfo:[NSDictionary dictionaryWithObject:reason forKey:NSLocalizedDescriptionKey]];
+    NSError *error = [[NSError alloc] initWithDomain:TE_NETWORK_ERROR_DOMAIN
+                                                code:TE_NETWORK_ERROR_CODE_INVALID_PARAM
+                                            userInfo:[NSDictionary dictionaryWithObject:reason
+                                                                                 forKey:NSLocalizedDescriptionKey
+                                                      ]
+                      ];
     return error;
 }
 #pragma mark - Implementation of TEDataProvider
+/**
+ Load all locations available
+ 
+ @param success success callback block
+ @param fail    failure callback block
+ */
+-(void) loadAllLocationSuccess:(void (^)(TELocationList *result)) success
+                          fail:(void (^)(NSError *error)) fail{
+    [self GET:[self endPointWithComponent:@[TE_ENDPOINT_LOCATION_LIST]
+                                  queries:nil
+                             responseType:TE_ENDPOINT_RESPONSE_TYPE
+               ]
+   returnType:[TELocationList class]
+      success:success
+         fail:fail];
+}
 
+/**
+ Load a location detail from location id
+ 
+ @param locationId the id of the location to load
+ @param success success callback block
+ @param fail    failure callback block
+ */
+-(void) loadLocationDetailWithId:(NSNumber*) locationId
+                         success:(void (^)(TELocation *result)) success
+                            fail:(void (^)(NSError *error)) fail{
+    
+    //check if valid parameters
+    if ([TEHelper isEmptyString:locationId.stringValue]) {
+        if (fail) {
+            fail ([TEAPIDataProvider invalidRequestParamError:NSLocalizedString(@"Missing location id", @"Missing location id")]);
+        }
+        return;
+    }
+    
+    [self GET:[self endPointWithComponent:@[TE_ENDPOINT_LOCATION, locationId.stringValue]
+                                  queries:nil
+                             responseType:TE_ENDPOINT_RESPONSE_TYPE
+               ]
+   returnType:[TELocation class]
+      success:success
+         fail:fail];
+}
 #pragma mark - Implementation of TEImageProvider
 
 /**
  Download a photo from server given an endpoint
  
- @param photoEndpoint the photo endpoint of the url to download. If FEConfigurations enable for caching. A cached version will be returned if downloaded this before.
+ @param photoEndpoint the photo endpoint of the url to download. If TEConfigurations enable for caching. A cached version will be returned if downloaded this before.
  @param success success callback block
  @param fail fail callback block
  */

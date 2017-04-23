@@ -11,4 +11,21 @@
 
 @interface TELocationList : TEBaseModel
 @property (nonatomic, strong) NSArray <TELocation*> *locations;
+
+
+/**
+ Number of location in this list
+
+ @return number of location in this list
+ */
+-(NSInteger) numberOfLocations;
+
+/**
+ Get the location at an index if within range. 
+ Return nil if out of range.
+ 
+ @param index index of requested location
+ @return a location at an index
+ */
+-(TELocation*) locationAtIndex:(NSInteger) index;
 @end

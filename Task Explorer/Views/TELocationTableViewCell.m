@@ -7,7 +7,13 @@
 //
 
 #import "TELocationTableViewCell.h"
+#import "TEUITheme.h"
+#import "TELocation.h"
+@interface TELocationTableViewCell ()
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
+
+@end
 @implementation TELocationTableViewCell
 /**
  *  Convenient method to return the nib of this cell class in main bundle
@@ -21,12 +27,29 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.nameLabel.textColor = [TEUITheme primaryColorDark];
+    self.nameLabel.font = [UIFont boldSystemFontOfSize:20];
+    self.nameLabel.backgroundColor = [TEUITheme primaryColorLight];
+    self.nameLabel.layer.cornerRadius = 6;
+    self.nameLabel.clipsToBounds = YES;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
+/**
+ Default height for this cell. Used for cell height estimation
+ 
+ @return Default height for this cell. Used for cell height estimation
+ */
++(CGFloat) defaultHeight{
+    return 80;
 }
 
+/**
+ Display a location in this cell
+ 
+ @param location the location to display
+ */
+-(void) showLocation:(TELocation*) location{
+    [self.nameLabel setText:location.displayName];
+}
 @end

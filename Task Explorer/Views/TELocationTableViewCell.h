@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class TELocation;
 @interface TELocationTableViewCell : UITableViewCell
 /**
  *  Convenient method to return the nib of this cell class in main bundle
@@ -16,4 +16,18 @@
  */
 + (UINib *)nib;
 
+
+/**
+ Default height for this cell. Used for cell height estimation
+
+ @return Default height for this cell. Used for cell height estimation
+ */
++(CGFloat) defaultHeight;
+
+/**
+ Display a location in this cell
+
+ @param location the location to display
+ */
+-(void) showLocation:(TELocation*) location;
 @end

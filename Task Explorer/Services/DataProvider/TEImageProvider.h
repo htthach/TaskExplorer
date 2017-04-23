@@ -13,7 +13,7 @@
 /**
  Download a photo from server given an endpoint
  
- @param photoEndpoint the photo endpoint of the url to download. If FEConfigurations enable for caching. A cached version will be returned if downloaded this before.
+ @param photoEndpoint the photo endpoint of the url to download. If TEConfigurations enable for caching. A cached version will be returned if downloaded this before.
  @param success success callback block
  @param fail fail callback block
  */

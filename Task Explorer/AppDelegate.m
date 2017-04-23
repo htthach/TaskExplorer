@@ -8,20 +8,31 @@
 
 #import "AppDelegate.h"
 #import "TELocationListViewController.h"
+
+#import "TEAPIDataProvider.h"
+#import "TEUITheme.h"
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
+-(void) setUITheme{
+    [[UINavigationBar appearance] setTranslucent:NO];
+    [[UINavigationBar appearance] setTintColor: [TEUITheme primaryColorDark]];
+    [[UINavigationBar appearance] setBarTintColor:[TEUITheme primaryColorLight]];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[TEUITheme primaryColorDark]}];
+}
 
 -(UIViewController*) demoHome{
     //For now the first thing user see is the Search Page under a navigation controller
-    TELocationListViewController *locationListVC = [TELocationListViewController new];
+    TELocationListViewController *locationListVC = [TELocationListViewController viewControllerWithDataProvider:[TEAPIDataProvider sharedDefaultProvider]];
     return [[UINavigationController alloc] initWithRootViewController:locationListVC];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self setUITheme];
+    
     self.window = [UIWindow new];
     
     //set home page for this code demo

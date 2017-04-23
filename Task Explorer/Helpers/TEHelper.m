@@ -20,4 +20,28 @@
     NSString *trim = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     return (trim == nil || [trim length] == 0);
 }
+
+/**
+ Simple error handling by displaying everything to user.
+ 
+ @param error error to show
+ @param viewController the view controller to show this error message in
+ */
++(void) showError:(NSError*) error inViewController:(UIViewController*) viewController{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:viewController.title message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    [alertController addAction:okAction];
+    [viewController presentViewController:alertController animated:YES completion:nil];
+}
+
+
+/**
+ Placeholder for missing image
+ 
+ @return placeholder for missing image
+ */
++(UIImage*) imagePlaceholder{
+    return [UIImage imageNamed:@"Placeholder"];
+}
+
 @end

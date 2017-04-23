@@ -7,12 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@protocol TEDataProvider;
 /**
  Display a list of location
  */
 @interface TELocationListViewController : UIViewController
-
+/**
+ Factory method to return an instance of this view controller utilizing the given data provider
+ 
+ @param dataProvider data provider to talk to API
+ @return an instance of TELocationListViewController
+ */
++(instancetype) viewControllerWithDataProvider:(id<TEDataProvider>) dataProvider;
 
 @end
 
