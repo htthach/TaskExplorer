@@ -29,6 +29,12 @@
 		6F3789C21EAC59C700FF4B35 /* TEAPIDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789C11EAC59C700FF4B35 /* TEAPIDataProvider.m */; };
 		6F3789C41EAC5A7E00FF4B35 /* Configurations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6F3789C31EAC5A7E00FF4B35 /* Configurations.plist */; };
 		6F3789C71EAC5A9500FF4B35 /* TEConfigurations.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789C61EAC5A9500FF4B35 /* TEConfigurations.m */; };
+		6F3789CA1EAC5CFF00FF4B35 /* TEBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789C91EAC5CFF00FF4B35 /* TEBaseModel.m */; };
+		6F3789CD1EAC5D2100FF4B35 /* TELocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789CC1EAC5D2100FF4B35 /* TELocation.m */; };
+		6F3789D01EAC5D5B00FF4B35 /* TEProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789CF1EAC5D5B00FF4B35 /* TEProfile.m */; };
+		6F3789D31EAC5D6700FF4B35 /* TETask.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789D21EAC5D6700FF4B35 /* TETask.m */; };
+		6F3789D61EAC5D7600FF4B35 /* TELocationList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789D51EAC5D7600FF4B35 /* TELocationList.m */; };
+		6F3789D91EAC600D00FF4B35 /* TEActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789D81EAC600D00FF4B35 /* TEActivity.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +97,18 @@
 		6F3789C31EAC5A7E00FF4B35 /* Configurations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configurations.plist; sourceTree = "<group>"; };
 		6F3789C51EAC5A9500FF4B35 /* TEConfigurations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEConfigurations.h; sourceTree = "<group>"; };
 		6F3789C61EAC5A9500FF4B35 /* TEConfigurations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEConfigurations.m; sourceTree = "<group>"; };
+		6F3789C81EAC5CFF00FF4B35 /* TEBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEBaseModel.h; sourceTree = "<group>"; };
+		6F3789C91EAC5CFF00FF4B35 /* TEBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEBaseModel.m; sourceTree = "<group>"; };
+		6F3789CB1EAC5D2100FF4B35 /* TELocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TELocation.h; sourceTree = "<group>"; };
+		6F3789CC1EAC5D2100FF4B35 /* TELocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TELocation.m; sourceTree = "<group>"; };
+		6F3789CE1EAC5D5B00FF4B35 /* TEProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEProfile.h; sourceTree = "<group>"; };
+		6F3789CF1EAC5D5B00FF4B35 /* TEProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEProfile.m; sourceTree = "<group>"; };
+		6F3789D11EAC5D6700FF4B35 /* TETask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TETask.h; sourceTree = "<group>"; };
+		6F3789D21EAC5D6700FF4B35 /* TETask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TETask.m; sourceTree = "<group>"; };
+		6F3789D41EAC5D7600FF4B35 /* TELocationList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TELocationList.h; sourceTree = "<group>"; };
+		6F3789D51EAC5D7600FF4B35 /* TELocationList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TELocationList.m; sourceTree = "<group>"; };
+		6F3789D71EAC600D00FF4B35 /* TEActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEActivity.h; sourceTree = "<group>"; };
+		6F3789D81EAC600D00FF4B35 /* TEActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEActivity.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +238,18 @@
 		6F3789951EAC524800FF4B35 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				6F3789C81EAC5CFF00FF4B35 /* TEBaseModel.h */,
+				6F3789C91EAC5CFF00FF4B35 /* TEBaseModel.m */,
+				6F3789CB1EAC5D2100FF4B35 /* TELocation.h */,
+				6F3789CC1EAC5D2100FF4B35 /* TELocation.m */,
+				6F3789CE1EAC5D5B00FF4B35 /* TEProfile.h */,
+				6F3789CF1EAC5D5B00FF4B35 /* TEProfile.m */,
+				6F3789D11EAC5D6700FF4B35 /* TETask.h */,
+				6F3789D21EAC5D6700FF4B35 /* TETask.m */,
+				6F3789D41EAC5D7600FF4B35 /* TELocationList.h */,
+				6F3789D51EAC5D7600FF4B35 /* TELocationList.m */,
+				6F3789D71EAC600D00FF4B35 /* TEActivity.h */,
+				6F3789D81EAC600D00FF4B35 /* TEActivity.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -421,12 +451,18 @@
 				6F3789BB1EAC591900FF4B35 /* TELocationDetailLogic.m in Sources */,
 				6F3789C71EAC5A9500FF4B35 /* TEConfigurations.m in Sources */,
 				6F3789B81EAC590600FF4B35 /* TELocationDetailViewController.m in Sources */,
+				6F3789D31EAC5D6700FF4B35 /* TETask.m in Sources */,
 				6F3789AE1EAC573600FF4B35 /* TETaskTableViewCell.m in Sources */,
 				6F37899B1EAC533400FF4B35 /* TELocationListViewController.m in Sources */,
+				6F3789CD1EAC5D2100FF4B35 /* TELocation.m in Sources */,
 				6F3789A91EAC572000FF4B35 /* TEProfileTableViewCell.m in Sources */,
 				6F3789B21EAC580200FF4B35 /* TEHelper.m in Sources */,
+				6F3789D01EAC5D5B00FF4B35 /* TEProfile.m in Sources */,
+				6F3789CA1EAC5CFF00FF4B35 /* TEBaseModel.m in Sources */,
 				6F3789C21EAC59C700FF4B35 /* TEAPIDataProvider.m in Sources */,
 				6F3789611EAC45C600FF4B35 /* main.m in Sources */,
+				6F3789D91EAC600D00FF4B35 /* TEActivity.m in Sources */,
+				6F3789D61EAC5D7600FF4B35 /* TELocationList.m in Sources */,
 				6F3789BF1EAC596E00FF4B35 /* TEJSONParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
