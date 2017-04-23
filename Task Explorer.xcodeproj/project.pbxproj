@@ -22,6 +22,11 @@
 		6F3789AE1EAC573600FF4B35 /* TETaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789AC1EAC573600FF4B35 /* TETaskTableViewCell.m */; };
 		6F3789AF1EAC573600FF4B35 /* TETaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F3789AD1EAC573600FF4B35 /* TETaskTableViewCell.xib */; };
 		6F3789B21EAC580200FF4B35 /* TEHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789B11EAC580200FF4B35 /* TEHelper.m */; };
+		6F3789B51EAC588200FF4B35 /* TELocationListLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789B41EAC588200FF4B35 /* TELocationListLogic.m */; };
+		6F3789B81EAC590600FF4B35 /* TELocationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789B71EAC590600FF4B35 /* TELocationDetailViewController.m */; };
+		6F3789BB1EAC591900FF4B35 /* TELocationDetailLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789BA1EAC591900FF4B35 /* TELocationDetailLogic.m */; };
+		6F3789BF1EAC596E00FF4B35 /* TEJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789BE1EAC596E00FF4B35 /* TEJSONParser.m */; };
+		6F3789C21EAC59C700FF4B35 /* TEAPIDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789C11EAC59C700FF4B35 /* TEAPIDataProvider.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +75,17 @@
 		6F3789AD1EAC573600FF4B35 /* TETaskTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TETaskTableViewCell.xib; sourceTree = "<group>"; };
 		6F3789B01EAC580200FF4B35 /* TEHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEHelper.h; sourceTree = "<group>"; };
 		6F3789B11EAC580200FF4B35 /* TEHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEHelper.m; sourceTree = "<group>"; };
+		6F3789B31EAC588200FF4B35 /* TELocationListLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TELocationListLogic.h; sourceTree = "<group>"; };
+		6F3789B41EAC588200FF4B35 /* TELocationListLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TELocationListLogic.m; sourceTree = "<group>"; };
+		6F3789B61EAC590600FF4B35 /* TELocationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TELocationDetailViewController.h; sourceTree = "<group>"; };
+		6F3789B71EAC590600FF4B35 /* TELocationDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TELocationDetailViewController.m; sourceTree = "<group>"; };
+		6F3789B91EAC591900FF4B35 /* TELocationDetailLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TELocationDetailLogic.h; sourceTree = "<group>"; };
+		6F3789BA1EAC591900FF4B35 /* TELocationDetailLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TELocationDetailLogic.m; sourceTree = "<group>"; };
+		6F3789BC1EAC595000FF4B35 /* TEDataToObjectParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEDataToObjectParser.h; sourceTree = "<group>"; };
+		6F3789BD1EAC596E00FF4B35 /* TEJSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEJSONParser.h; sourceTree = "<group>"; };
+		6F3789BE1EAC596E00FF4B35 /* TEJSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEJSONParser.m; sourceTree = "<group>"; };
+		6F3789C01EAC59C700FF4B35 /* TEAPIDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEAPIDataProvider.h; sourceTree = "<group>"; };
+		6F3789C11EAC59C700FF4B35 /* TEAPIDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEAPIDataProvider.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +191,12 @@
 			children = (
 				6F3789991EAC533400FF4B35 /* TELocationListViewController.h */,
 				6F37899A1EAC533400FF4B35 /* TELocationListViewController.m */,
+				6F3789B31EAC588200FF4B35 /* TELocationListLogic.h */,
+				6F3789B41EAC588200FF4B35 /* TELocationListLogic.m */,
+				6F3789B61EAC590600FF4B35 /* TELocationDetailViewController.h */,
+				6F3789B71EAC590600FF4B35 /* TELocationDetailViewController.m */,
+				6F3789B91EAC591900FF4B35 /* TELocationDetailLogic.h */,
+				6F3789BA1EAC591900FF4B35 /* TELocationDetailLogic.m */,
 			);
 			path = Locations;
 			sourceTree = "<group>";
@@ -232,6 +254,9 @@
 		6F37899F1EAC56E100FF4B35 /* DataParser */ = {
 			isa = PBXGroup;
 			children = (
+				6F3789BC1EAC595000FF4B35 /* TEDataToObjectParser.h */,
+				6F3789BD1EAC596E00FF4B35 /* TEJSONParser.h */,
+				6F3789BE1EAC596E00FF4B35 /* TEJSONParser.m */,
 			);
 			path = DataParser;
 			sourceTree = "<group>";
@@ -239,6 +264,8 @@
 		6F3789A01EAC56E100FF4B35 /* DataProvider */ = {
 			isa = PBXGroup;
 			children = (
+				6F3789C01EAC59C700FF4B35 /* TEAPIDataProvider.h */,
+				6F3789C11EAC59C700FF4B35 /* TEAPIDataProvider.m */,
 			);
 			path = DataProvider;
 			sourceTree = "<group>";
@@ -379,13 +406,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F3789A41EAC570800FF4B35 /* TELocationTableViewCell.m in Sources */,
+				6F3789B51EAC588200FF4B35 /* TELocationListLogic.m in Sources */,
 				6F37899E1EAC558D00FF4B35 /* TEUITheme.m in Sources */,
 				6F3789641EAC45C600FF4B35 /* AppDelegate.m in Sources */,
+				6F3789BB1EAC591900FF4B35 /* TELocationDetailLogic.m in Sources */,
+				6F3789B81EAC590600FF4B35 /* TELocationDetailViewController.m in Sources */,
 				6F3789AE1EAC573600FF4B35 /* TETaskTableViewCell.m in Sources */,
 				6F37899B1EAC533400FF4B35 /* TELocationListViewController.m in Sources */,
 				6F3789A91EAC572000FF4B35 /* TEProfileTableViewCell.m in Sources */,
 				6F3789B21EAC580200FF4B35 /* TEHelper.m in Sources */,
+				6F3789C21EAC59C700FF4B35 /* TEAPIDataProvider.m in Sources */,
 				6F3789611EAC45C600FF4B35 /* main.m in Sources */,
+				6F3789BF1EAC596E00FF4B35 /* TEJSONParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

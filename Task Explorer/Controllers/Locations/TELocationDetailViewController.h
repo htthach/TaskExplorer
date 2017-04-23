@@ -1,5 +1,5 @@
 //
-//  TELocationListViewController.h
+//  TELocationDetailViewController.h
 //  Task Explorer
 //
 //  Created by Tinh Thach Hinh on 23/4/17.
@@ -8,11 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-/**
- Display a list of location
- */
-@interface TELocationListViewController : UIViewController
-
+@interface TELocationDetailViewController : UIViewController
 
 @end
-
