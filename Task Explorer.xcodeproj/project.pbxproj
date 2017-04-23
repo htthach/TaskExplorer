@@ -27,6 +27,8 @@
 		6F3789BB1EAC591900FF4B35 /* TELocationDetailLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789BA1EAC591900FF4B35 /* TELocationDetailLogic.m */; };
 		6F3789BF1EAC596E00FF4B35 /* TEJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789BE1EAC596E00FF4B35 /* TEJSONParser.m */; };
 		6F3789C21EAC59C700FF4B35 /* TEAPIDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789C11EAC59C700FF4B35 /* TEAPIDataProvider.m */; };
+		6F3789C41EAC5A7E00FF4B35 /* Configurations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6F3789C31EAC5A7E00FF4B35 /* Configurations.plist */; };
+		6F3789C71EAC5A9500FF4B35 /* TEConfigurations.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789C61EAC5A9500FF4B35 /* TEConfigurations.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +88,9 @@
 		6F3789BE1EAC596E00FF4B35 /* TEJSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEJSONParser.m; sourceTree = "<group>"; };
 		6F3789C01EAC59C700FF4B35 /* TEAPIDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEAPIDataProvider.h; sourceTree = "<group>"; };
 		6F3789C11EAC59C700FF4B35 /* TEAPIDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEAPIDataProvider.m; sourceTree = "<group>"; };
+		6F3789C31EAC5A7E00FF4B35 /* Configurations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configurations.plist; sourceTree = "<group>"; };
+		6F3789C51EAC5A9500FF4B35 /* TEConfigurations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEConfigurations.h; sourceTree = "<group>"; };
+		6F3789C61EAC5A9500FF4B35 /* TEConfigurations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEConfigurations.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +236,9 @@
 		6F3789971EAC524800FF4B35 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				6F3789C31EAC5A7E00FF4B35 /* Configurations.plist */,
+				6F3789C51EAC5A9500FF4B35 /* TEConfigurations.h */,
+				6F3789C61EAC5A9500FF4B35 /* TEConfigurations.m */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -377,6 +385,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F3789AA1EAC572000FF4B35 /* TEProfileTableViewCell.xib in Resources */,
+				6F3789C41EAC5A7E00FF4B35 /* Configurations.plist in Resources */,
 				6F37896F1EAC45C600FF4B35 /* LaunchScreen.storyboard in Resources */,
 				6F37896C1EAC45C600FF4B35 /* Assets.xcassets in Resources */,
 				6F3789A51EAC570800FF4B35 /* TELocationTableViewCell.xib in Resources */,
@@ -410,6 +419,7 @@
 				6F37899E1EAC558D00FF4B35 /* TEUITheme.m in Sources */,
 				6F3789641EAC45C600FF4B35 /* AppDelegate.m in Sources */,
 				6F3789BB1EAC591900FF4B35 /* TELocationDetailLogic.m in Sources */,
+				6F3789C71EAC5A9500FF4B35 /* TEConfigurations.m in Sources */,
 				6F3789B81EAC590600FF4B35 /* TELocationDetailViewController.m in Sources */,
 				6F3789AE1EAC573600FF4B35 /* TETaskTableViewCell.m in Sources */,
 				6F37899B1EAC533400FF4B35 /* TELocationListViewController.m in Sources */,
