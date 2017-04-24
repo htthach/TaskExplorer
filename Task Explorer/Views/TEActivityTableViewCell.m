@@ -12,7 +12,7 @@
 #import "TEActivity.h"
 #import "TEProfile.h"
 #import "TETask.h"
-
+#import "TEUITheme.h"
 @interface TEActivityTableViewCell()
 @property (nonatomic, strong) TEActivity *currentActivity;
 @end
@@ -30,6 +30,11 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.contentView.backgroundColor = [TEUITheme primaryColorLight];
+    self.activityDescriptionLabel.textColor = [TEUITheme primaryColorDark];
+    self.activityDescriptionLabel.font = [UIFont systemFontOfSize:16];
+    self.profileImageView.layer.cornerRadius = 6;
+    self.profileImageView.clipsToBounds = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -72,7 +77,7 @@
  @return simple description of an activity
  */
 -(NSString*) descriptionTextForActivity:(TEActivity*) activity{
-    return [NSString stringWithFormat:@"%@:%@\n%@:%@",
+    return [NSString stringWithFormat:@"%@: %@\n%@: %@",
             NSLocalizedString(@"Description", @"Description"), [activity populatedActivityMessage]?:@"-",
             NSLocalizedString(@"Type", @"Type"), activity.event?:@"-"
             ];

@@ -10,7 +10,7 @@
 #import "TEProfile.h"
 #import "TEImageProvider.h"
 #import "TEHelper.h"
-
+#import "TEUITheme.h"
 @interface TEProfileTableViewCell ()
 @property (nonatomic, strong) TEProfile *currentProfile;
 @end
@@ -28,6 +28,11 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.contentView.backgroundColor = [TEUITheme primaryColorLight];
+    self.profileDescriptionLabel.textColor = [TEUITheme primaryColorDark];
+    self.profileDescriptionLabel.font = [UIFont systemFontOfSize:16];
+    self.profileImageView.layer.cornerRadius = 6;
+    self.profileImageView.clipsToBounds = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -72,7 +77,7 @@
  @return simple description of a profile
  */
 -(NSString*) descriptionTextForProfile:(TEProfile*) profile{
-    return [NSString stringWithFormat:@"%@:%@\n%@:%@\n%@:%@",
+    return [NSString stringWithFormat:@"%@: %@\n%@: %@\n%@: %@",
             NSLocalizedString(@"Name", @"Name"), profile.firstName?:@"-",
             NSLocalizedString(@"Rating", @"Rating"), profile.rating?:@"-",
             NSLocalizedString(@"Description", @"Description"), profile.profileDescription?:@"-"];

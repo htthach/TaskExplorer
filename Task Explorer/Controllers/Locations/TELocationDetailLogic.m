@@ -14,8 +14,6 @@
 #import "TEProfile.h"
 
 @interface TELocationDetailLogic ()
-@property (nonatomic, strong) id<TEDataProvider>    dataProvider;
-@property (nonatomic, strong) TELocation            *location;
 @end
 @implementation TELocationDetailLogic
 /**

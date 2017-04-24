@@ -12,7 +12,8 @@
 #import "TEMapTableViewCell.h"
 #import "TEProfileTableViewCell.h"
 #import "TEActivityTableViewCell.h"
-
+#import "TELocation.h"
+#import "TEUITheme.h"
 static NSString * const TEMapTableViewCellIdentifier = @"TEMapTableViewCellIdentifier";
 static NSString * const TEProfileTableViewCellIdentifier = @"TEProfileTableViewCellIdentifier";
 static NSString * const TEActivityTableViewCellIdentifier = @"TEActivityTableViewCellIdentifier";
@@ -72,7 +73,7 @@ static int const TE_TOTAL_SECTION_COUNT     = 3;
 -(void)loadView{
     //create a basic view with a UICollectionView and a tag selection banner as subview
     UIView *view = [UIView new];
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     [view addSubview:self.tableView];
     self.view = view;
 }
@@ -80,7 +81,7 @@ static int const TE_TOTAL_SECTION_COUNT     = 3;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.title = NSLocalizedString(@"LOCATIONS", @"LOCATIONS");
+    self.title = self.locationLogic.location.displayName;
     [self setupConstraints];
     [self setupTableView];
     
@@ -106,7 +107,6 @@ static int const TE_TOTAL_SECTION_COUNT     = 3;
     self.tableView.backgroundColor = [UIColor whiteColor];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self.tableView registerNib:[TEMapTableViewCell nib] forCellReuseIdentifier:TEMapTableViewCellIdentifier];
     [self.tableView registerNib:[TEProfileTableViewCell nib] forCellReuseIdentifier:TEProfileTableViewCellIdentifier];
@@ -193,12 +193,14 @@ static int const TE_TOTAL_SECTION_COUNT     = 3;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 30.0;
+    return 40.0;
 }
 //for simplicity just return a label
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UITableViewHeaderFooterView *sectionHeaderView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:TETableViewSectionHeaderViewIdentifier];
     sectionHeaderView.textLabel.text = [self nameForSection:section];
+    sectionHeaderView.textLabel.textColor = [TEUITheme primaryColorDark];
+    sectionHeaderView.textLabel.font = [UIFont boldSystemFontOfSize:20];
     return sectionHeaderView;
 }
 @end

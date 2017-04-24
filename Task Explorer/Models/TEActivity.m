@@ -21,7 +21,7 @@ static NSString * const TE_ACTIVITY_TEMPLATE_KEY_TASK_NAME = @"{taskName}";
  */
 -(NSString*) populatedActivityMessage{
     NSString *populatedMessage = [self.message stringByReplacingOccurrencesOfString:TE_ACTIVITY_TEMPLATE_KEY_PROFILE_NAME withString:self.profile.firstName?:@""];
-    populatedMessage = [self.message stringByReplacingOccurrencesOfString:TE_ACTIVITY_TEMPLATE_KEY_TASK_NAME withString:self.task.name?:@""];
+    populatedMessage = [populatedMessage stringByReplacingOccurrencesOfString:TE_ACTIVITY_TEMPLATE_KEY_TASK_NAME withString:self.task.name?:@""];
     return populatedMessage;
 }
 @end

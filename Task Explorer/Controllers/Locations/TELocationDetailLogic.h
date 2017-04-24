@@ -21,6 +21,9 @@
 
 @interface TELocationDetailLogic : NSObject
 @property (weak) id<TELocationDetailLogicDelegate> delegate;
+@property (nonatomic, strong) id<TEDataProvider>    dataProvider;
+@property (nonatomic, strong) TELocation            *location;
+
 /**
  Initialize this class utilizing the given data provider and delegate
  

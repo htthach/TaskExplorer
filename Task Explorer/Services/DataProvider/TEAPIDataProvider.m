@@ -290,6 +290,10 @@ static NSString * const TE_NETWORK_ERROR_DOMAIN             = @"com.taskexplorer
  @return the URL to download the image from
  */
 -(NSURL*) imageFullURLFromEndpoint:(NSString*) endpoint {
+    //remove / prefix
+    if ([endpoint hasPrefix:@"/"]) {
+        endpoint = [endpoint stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:@""];
+    }
     return [[TEAPIDataProvider apiBaseURL] URLByAppendingPathComponent:endpoint];
 }
 
