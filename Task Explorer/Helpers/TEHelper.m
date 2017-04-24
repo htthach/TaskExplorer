@@ -44,4 +44,38 @@
     return [UIImage imageNamed:@"Placeholder"];
 }
 
+
+/**
+ Resize a uiimage to a different size
+
+ @param image image to resize
+ @param newSize new size of result
+ @return a UIImage with new size
+ */
++(UIImage *) imageByResizeImage:(UIImage*)image toSize:(CGSize)newSize{
+    CGFloat scale = [[UIScreen mainScreen]scale];
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, scale);
+    [image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
+
++(CGSize) sizeThatCoverSize:(CGSize) size withAspectOf:(CGSize) referenceSize{
+    if (referenceSize.height < 0.001 || referenceSize.width < 0.001) {
+        return size;
+    }
+    
+    CGFloat height = size.height;
+    CGFloat width = size.width;
+    CGFloat convertWidth = height * referenceSize.width / referenceSize.height;
+    CGFloat convertHeight = referenceSize.height * width / referenceSize.width;
+    if (convertWidth > width) {
+        return CGSizeMake(convertWidth, height);
+    }
+    else {
+        return CGSizeMake(width, convertHeight);
+    }
+}
 @end

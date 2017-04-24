@@ -63,10 +63,16 @@
     self.activityDescriptionLabel.text = [self descriptionTextForActivity:activity];
     //download image
     [imageProvider downloadImageForEndpoint:activity.profile.avatarMiniUrl success:^(UIImage *image) {
-        if ([activity.profile isSameProfileAs:self.currentActivity.profile]) {
-            //still showing the same profile inside the activity in this cell
-            [self.profileImageView setImage:image];
-        }
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            CGSize smallSize = [TEHelper sizeThatCoverSize:self.profileImageView.frame.size withAspectOf:image.size];
+            UIImage *smallImage = [TEHelper imageByResizeImage:image toSize:smallSize];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if ([activity.profile isSameProfileAs:self.currentActivity.profile]) {
+                    //still showing the same profile inside the activity in this cell
+                    [self.profileImageView setImage:smallImage];
+                }
+            });
+        });
     } fail:^(NSError *error) {
         //leave blank with placeholder
     }];

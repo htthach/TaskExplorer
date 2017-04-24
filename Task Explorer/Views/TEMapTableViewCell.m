@@ -42,6 +42,6 @@
  */
 -(void) showCoordinate:(CLLocationCoordinate2D) coordinate{
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance (coordinate, 2000, 2000);
-    [self.mapView setRegion:region animated:YES];
+    [self.mapView setRegion:region animated:NO];
 }
 @end

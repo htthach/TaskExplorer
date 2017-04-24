@@ -62,10 +62,16 @@
     self.profileDescriptionLabel.text = [self descriptionTextForProfile:profile];
     //download image
     [imageProvider downloadImageForEndpoint:profile.avatarMiniUrl success:^(UIImage *image) {
-        if ([profile isSameProfileAs:self.currentProfile]) {
-            //still showing the same profile in this cell
-            [self.profileImageView setImage:image];
-        }
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            CGSize smallSize = [TEHelper sizeThatCoverSize:self.profileImageView.frame.size withAspectOf:image.size];
+            UIImage *smallImage = [TEHelper imageByResizeImage:image toSize:smallSize];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if ([profile isSameProfileAs:self.currentProfile]) {
+                    //still showing the same profile in this cell
+                    [self.profileImageView setImage:smallImage];
+                }
+            });
+        });
     } fail:^(NSError *error) {
         //leave blank with placeholder
     }];

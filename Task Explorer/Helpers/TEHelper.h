@@ -33,4 +33,14 @@
  @return placeholder for missing image
  */
 +(UIImage*) imagePlaceholder;
+
+/**
+ Resize a uiimage to a different size
+ 
+ @param image image to resize
+ @param newSize new size of result
+ @return a UIImage with new size
+ */
++(UIImage *) imageByResizeImage:(UIImage*)image toSize:(CGSize)newSize;
++(CGSize) sizeThatCoverSize:(CGSize) size withAspectOf:(CGSize) referenceSize;
 @end

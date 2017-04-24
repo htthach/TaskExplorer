@@ -130,14 +130,10 @@ static int const TE_TOTAL_SECTION_COUNT     = 3;
 }
 #pragma mark - TELocationDetailLogicDelegate
 -(void)locationDetailDidUpdateWorkerAtIndex:(NSInteger)workerIndex{
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:workerIndex inSection:TE_WORKER_SECTION_INDEX];
-    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-    
+    [self.tableView reloadData];
 }
 -(void)locationDetailDidUpdateActivityAtIndex:(NSInteger)activityIndex{
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:activityIndex inSection:TE_ACTIVITY_SECTION_INDEX];
-    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-    
+    [self.tableView reloadData];
 }
 -(void)locationDetailLogicDidEncounterError:(NSError *)error{
     [TEHelper showError:error inViewController:self];
