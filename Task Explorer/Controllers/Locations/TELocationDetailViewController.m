@@ -18,6 +18,7 @@ static NSString * const TEMapTableViewCellIdentifier = @"TEMapTableViewCellIdent
 static NSString * const TEProfileTableViewCellIdentifier = @"TEProfileTableViewCellIdentifier";
 static NSString * const TEActivityTableViewCellIdentifier = @"TEActivityTableViewCellIdentifier";
 static NSString * const TETableViewSectionHeaderViewIdentifier = @"TETableViewSectionHeaderViewIdentifier";
+static CGFloat  const TEMapHeight = 150;
 
 //If we want more control on biz logic with sections, it's better if we create section control in logic with dynamic section construction
 //for now, do simple section
@@ -107,6 +108,7 @@ static int const TE_TOTAL_SECTION_COUNT     = 3;
     self.tableView.backgroundColor = [UIColor whiteColor];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self.tableView registerNib:[TEMapTableViewCell nib] forCellReuseIdentifier:TEMapTableViewCellIdentifier];
     [self.tableView registerNib:[TEProfileTableViewCell nib] forCellReuseIdentifier:TEProfileTableViewCellIdentifier];
@@ -128,20 +130,14 @@ static int const TE_TOTAL_SECTION_COUNT     = 3;
 }
 #pragma mark - TELocationDetailLogicDelegate
 -(void)locationDetailDidUpdateWorkerAtIndex:(NSInteger)workerIndex{
-    [self.tableView reloadData];
-    return;
-    [UIView performWithoutAnimation:^{
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:workerIndex inSection:TE_WORKER_SECTION_INDEX];
-        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-    }];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:workerIndex inSection:TE_WORKER_SECTION_INDEX];
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    
 }
 -(void)locationDetailDidUpdateActivityAtIndex:(NSInteger)activityIndex{
-    [self.tableView reloadData];
-    return;
-    [UIView performWithoutAnimation:^{
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:activityIndex inSection:TE_ACTIVITY_SECTION_INDEX];
-        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-    }];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:activityIndex inSection:TE_ACTIVITY_SECTION_INDEX];
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    
 }
 -(void)locationDetailLogicDidEncounterError:(NSError *)error{
     [TEHelper showError:error inViewController:self];
@@ -169,7 +165,8 @@ static int const TE_TOTAL_SECTION_COUNT     = 3;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == TE_MAP_SECTION_INDEX) {
-        return [tableView dequeueReusableCellWithIdentifier:TEMapTableViewCellIdentifier forIndexPath:indexPath];
+        TEMapTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TEMapTableViewCellIdentifier forIndexPath:indexPath];
+        [cell showCoordinate:[self.locationLogic coordinateOfLocation]];
     }
     if (indexPath.section == TE_WORKER_SECTION_INDEX) {
         TEProfileTableViewCell *profileCell = [tableView dequeueReusableCellWithIdentifier:TEProfileTableViewCellIdentifier forIndexPath:indexPath];
@@ -186,9 +183,15 @@ static int const TE_TOTAL_SECTION_COUNT     = 3;
     return [UITableViewCell new];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == TE_MAP_SECTION_INDEX) {
+        return TEMapHeight;
+    }
     return UITableViewAutomaticDimension;
 }
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == TE_MAP_SECTION_INDEX) {
+        return TEMapHeight;
+    }
     return UITableViewAutomaticDimension;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

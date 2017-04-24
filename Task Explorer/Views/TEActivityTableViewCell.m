@@ -30,7 +30,9 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    self.contentView.backgroundColor = [TEUITheme primaryColorLight];
+    self.innerContainer.backgroundColor = [TEUITheme primaryColorLight];
+    self.innerContainer.layer.cornerRadius = 6;
+    self.innerContainer.clipsToBounds = YES;
     self.activityDescriptionLabel.textColor = [TEUITheme primaryColorDark];
     self.activityDescriptionLabel.font = [UIFont systemFontOfSize:16];
     self.profileImageView.layer.cornerRadius = 6;

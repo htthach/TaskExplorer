@@ -7,7 +7,11 @@
 //
 
 #import "TEMapTableViewCell.h"
+#import <MapKit/MapKit.h>
+@interface TEMapTableViewCell ()
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
+@end
 @implementation TEMapTableViewCell
 /**
  *  Convenient method to return the nib of this cell class in main bundle
@@ -21,6 +25,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.mapView.layer.cornerRadius = 6;
+    self.mapView.clipsToBounds = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -28,5 +34,14 @@
 
     // Configure the view for the selected state
 }
-
+/**
+ Show a coordinate (latitude and longitude) in the map of this cell
+ 
+ @param coordinate coordinate to show
+ 
+ */
+-(void) showCoordinate:(CLLocationCoordinate2D) coordinate{
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance (coordinate, 2000, 2000);
+    [self.mapView setRegion:region animated:YES];
+}
 @end

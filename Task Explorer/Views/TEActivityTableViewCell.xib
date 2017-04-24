@@ -18,33 +18,46 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="104"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WAn-Kk-9Ry">
-                        <rect key="frame" x="8" y="11" width="80" height="80"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1EH-AS-30J" userLabel="Container">
+                        <rect key="frame" x="10" y="2" width="300" height="99.5"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WAn-Kk-9Ry">
+                                <rect key="frame" x="20" y="9" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="Eh1-3A-yM3"/>
+                                    <constraint firstAttribute="height" constant="80" id="t6d-D5-yrv"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBj-3w-pcH">
+                                <rect key="frame" x="108" y="20" width="172" height="59.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="80" id="Eh1-3A-yM3"/>
-                            <constraint firstAttribute="height" constant="80" id="t6d-D5-yrv"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="WAn-Kk-9Ry" secondAttribute="bottom" constant="8" id="6W3-4p-ZMS"/>
+                            <constraint firstAttribute="trailing" secondItem="hBj-3w-pcH" secondAttribute="trailing" constant="20" id="8bL-CU-e4K"/>
+                            <constraint firstItem="WAn-Kk-9Ry" firstAttribute="leading" secondItem="1EH-AS-30J" secondAttribute="leading" constant="20" id="KKP-Tm-Pej"/>
+                            <constraint firstItem="WAn-Kk-9Ry" firstAttribute="top" relation="greaterThanOrEqual" secondItem="1EH-AS-30J" secondAttribute="top" constant="8" id="Lg7-kp-HOv"/>
+                            <constraint firstItem="hBj-3w-pcH" firstAttribute="leading" secondItem="WAn-Kk-9Ry" secondAttribute="trailing" constant="8" id="dYg-Tw-yOp"/>
+                            <constraint firstAttribute="bottom" secondItem="hBj-3w-pcH" secondAttribute="bottom" constant="20" id="gSd-Rx-TQH"/>
+                            <constraint firstItem="WAn-Kk-9Ry" firstAttribute="centerY" secondItem="1EH-AS-30J" secondAttribute="centerY" id="l88-6G-EGU"/>
+                            <constraint firstItem="hBj-3w-pcH" firstAttribute="top" secondItem="1EH-AS-30J" secondAttribute="top" constant="20" id="nH2-jp-phN"/>
                         </constraints>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBj-3w-pcH">
-                        <rect key="frame" x="96" y="8" width="216" height="87.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="hBj-3w-pcH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="0i0-Pd-F5n"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="WAn-Kk-9Ry" secondAttribute="bottom" constant="8" id="1mO-Do-W0k"/>
-                    <constraint firstItem="WAn-Kk-9Ry" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="2FC-VP-v2w"/>
-                    <constraint firstAttribute="bottom" secondItem="hBj-3w-pcH" secondAttribute="bottom" constant="8" id="6n1-Yw-4BE"/>
-                    <constraint firstAttribute="trailing" secondItem="hBj-3w-pcH" secondAttribute="trailing" constant="8" id="F0f-7f-lRk"/>
-                    <constraint firstItem="WAn-Kk-9Ry" firstAttribute="top" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="G6K-JS-pQv"/>
-                    <constraint firstItem="WAn-Kk-9Ry" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Gry-09-HhN"/>
-                    <constraint firstItem="hBj-3w-pcH" firstAttribute="leading" secondItem="WAn-Kk-9Ry" secondAttribute="trailing" constant="8" id="cqY-Ra-bxn"/>
+                    <constraint firstAttribute="bottom" secondItem="1EH-AS-30J" secondAttribute="bottom" constant="2" id="1It-Nh-Ee6"/>
+                    <constraint firstItem="1EH-AS-30J" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="Bvy-Gk-bs9"/>
+                    <constraint firstItem="1EH-AS-30J" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="VtT-dD-y4m"/>
+                    <constraint firstAttribute="trailing" secondItem="1EH-AS-30J" secondAttribute="trailing" constant="10" id="tvI-ZK-OyN"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="activityDescriptionLabel" destination="hBj-3w-pcH" id="XEk-BE-8qn"/>
+                <outlet property="innerContainer" destination="1EH-AS-30J" id="X5p-vh-dOf"/>
                 <outlet property="profileImageView" destination="WAn-Kk-9Ry" id="W0N-dc-zkz"/>
             </connections>
             <point key="canvasLocation" x="25" y="82"/>

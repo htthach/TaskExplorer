@@ -38,6 +38,7 @@
 		6F3789E41EAD08DA00FF4B35 /* TEActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F3789E21EAD08DA00FF4B35 /* TEActivityTableViewCell.xib */; };
 		6F3789E81EAD16BF00FF4B35 /* TEMapTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789E61EAD16BF00FF4B35 /* TEMapTableViewCell.m */; };
 		6F3789E91EAD16BF00FF4B35 /* TEMapTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F3789E71EAD16BF00FF4B35 /* TEMapTableViewCell.xib */; };
+		6F3789EC1EAE6DAD00FF4B35 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3789EB1EAE6DAD00FF4B35 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,7 @@
 		6F3789E51EAD16BF00FF4B35 /* TEMapTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEMapTableViewCell.h; sourceTree = "<group>"; };
 		6F3789E61EAD16BF00FF4B35 /* TEMapTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEMapTableViewCell.m; sourceTree = "<group>"; };
 		6F3789E71EAD16BF00FF4B35 /* TEMapTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TEMapTableViewCell.xib; sourceTree = "<group>"; };
+		6F3789EB1EAE6DAD00FF4B35 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F3789EC1EAE6DAD00FF4B35 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +157,7 @@
 				6F3789781EAC45C600FF4B35 /* Task ExplorerTests */,
 				6F3789831EAC45C600FF4B35 /* Task ExplorerUITests */,
 				6F37895D1EAC45C600FF4B35 /* Products */,
+				6F3789EA1EAE6DAD00FF4B35 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -325,6 +329,14 @@
 				6F3789DE1EACC4DB00FF4B35 /* TEMemoryCache.m */,
 			);
 			path = DataProvider;
+			sourceTree = "<group>";
+		};
+		6F3789EA1EAE6DAD00FF4B35 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6F3789EB1EAE6DAD00FF4B35 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

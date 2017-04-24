@@ -12,6 +12,7 @@
 @interface TEProfileTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UILabel *profileDescriptionLabel;
+@property (weak, nonatomic) IBOutlet UIView *innerContainer;
 
 /**
  *  Convenient method to return the nib of this cell class in main bundle

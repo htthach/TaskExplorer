@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CLLocation.h>
 @class TELocation;
 @class TEProfile;
 @class TEActivity;
@@ -68,4 +69,12 @@
  @return the activity to show at an index
  */
 -(TEActivity*) activityToShowAtIndex:(NSInteger) index;
+
+
+/**
+ Get the coordinate of the location to show
+
+ @return the coordinate of the location to show
+ */
+-(CLLocationCoordinate2D) coordinateOfLocation;
 @end

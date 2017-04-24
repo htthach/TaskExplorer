@@ -159,4 +159,12 @@
     return [self.location activityAtIndex:index];
 }
 
+/**
+ Get the coordinate of the location to show
+ 
+ @return the coordinate of the location to show
+ */
+-(CLLocationCoordinate2D) coordinateOfLocation{
+    return CLLocationCoordinate2DMake([self.location.latitude doubleValue], [self.location.longitude doubleValue]);
+}
 @end

@@ -12,6 +12,7 @@
 @interface TEActivityTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UILabel *activityDescriptionLabel;
+@property (weak, nonatomic) IBOutlet UIView *innerContainer;
 
 
 /**
