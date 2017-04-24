@@ -8,15 +8,19 @@
 
 #import <UIKit/UIKit.h>
 @protocol TEDataProvider;
+@protocol TEImageProvider;
 @class TELocation;
 
 @interface TELocationDetailViewController : UIViewController
 /**
- Factory method to return an instance of this view controller utilizing the given data provider
+ Factory method to return an instance of this view controller utilizing the given data & image provider
  
  @param dataProvider data provider to talk to API
+ @param imageProvider image provider to download image from api
  @param location     initial location object
  @return an instance of TELocationDetailViewController
  */
-+(instancetype) viewControllerWithDataProvider:(id<TEDataProvider>) dataProvider location:(TELocation*) location;
++(instancetype) viewControllerWithDataProvider:(id<TEDataProvider>) dataProvider
+                                 imageProvider:(id<TEImageProvider>) imageProvider
+                                      location:(TELocation*) location;
 @end

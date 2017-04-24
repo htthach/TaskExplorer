@@ -7,6 +7,7 @@
 //
 
 #import "TELocationListViewController.h"
+#import "TELocationDetailViewController.h"
 #import "TELocationTableViewCell.h"
 #import "TELocationListLogic.h"
 #import "TEHelper.h"
@@ -14,31 +15,37 @@ static NSString * const TELocationTableViewCellIdentifier = @"TELocationTableVie
 
 @interface TELocationListViewController () <UITableViewDelegate, UITableViewDataSource, TELocationListLogicDelegate>
 @property (nonatomic, strong) UITableView           *tableView;
-
+@property (nonatomic, strong) id<TEImageProvider>   imageProvider;
 @property (nonatomic, strong) TELocationListLogic   *listLogic;
 @end
 
 @implementation TELocationListViewController
 /**
- Factory method to return an instance of this view controller utilizing the given data provider
+ Factory method to return an instance of this view controller utilizing the given data provider and image provider
  
  @param dataProvider data provider to talk to API
+ @param imageProvider image provider to download image from api
  @return an instance of TELocationListViewController
  */
-+(instancetype) viewControllerWithDataProvider:(id<TEDataProvider>) dataProvider{
-    return [[TELocationListViewController alloc] initWithDataProvider:dataProvider];
++(instancetype) viewControllerWithDataProvider:(id<TEDataProvider>) dataProvider
+                                 imageProvider:(id<TEImageProvider>) imageProvider{
+    return [[TELocationListViewController alloc] initWithDataProvider:dataProvider
+                                                        imageProvider:imageProvider];
 }
 
 /**
  Initialize with basic location list logic
  
  @param dataProvider data provider to talk to API
+ @param imageProvider image provider to download image from api
  @return an instance of TELocationListViewController
  */
--(instancetype)initWithDataProvider:(id<TEDataProvider>) dataProvider{
+-(instancetype)initWithDataProvider:(id<TEDataProvider>) dataProvider
+                      imageProvider:(id<TEImageProvider>) imageProvider{
     self = [super init];
     if (self) {
         self.listLogic = [[TELocationListLogic alloc] initWithDataProvider:dataProvider delegate:self];
+        self.imageProvider = imageProvider;
     }
     return self;
 }
@@ -84,6 +91,21 @@ static NSString * const TELocationTableViewCellIdentifier = @"TELocationTableVie
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerNib:[TELocationTableViewCell nib] forCellReuseIdentifier:TELocationTableViewCellIdentifier];
 }
+
+#pragma mark - functional methods
+
+/**
+ Show detail view for a location
+
+ @param location location to show
+ */
+-(void) showDetailForLocation:(TELocation*) location{
+    TELocationDetailViewController *locationDetailVC = [TELocationDetailViewController viewControllerWithDataProvider:self.listLogic.dataProvider
+                                                                                                        imageProvider:self.imageProvider
+                                                                                                             location:location];
+    [self.navigationController pushViewController:locationDetailVC
+                                         animated:YES];
+}
 #pragma mark - TELocationListLogicDelegate
 -(void)locationListDidUpdate{
     [self.tableView reloadData];
@@ -92,7 +114,9 @@ static NSString * const TELocationTableViewCellIdentifier = @"TELocationTableVie
     [TEHelper showError:error inViewController:self];
 }
 #pragma mark - table view delegate
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self showDetailForLocation: [self.listLogic locationToShowAtIndex:indexPath.row]];
+}
 #pragma mark - table view data source
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;

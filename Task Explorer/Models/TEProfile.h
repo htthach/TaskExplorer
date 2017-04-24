@@ -16,4 +16,12 @@
 @property (nonatomic, copy) NSString    *avatarMiniUrl;
 @property (nonatomic, copy) NSString    *profileDescription;
 
+
+/**
+ Check if this profile is same as another one
+
+ @param otherProfile the profile to compare to
+ @return YES if same profile id, NO otherwise.
+ */
+-(BOOL) isSameProfileAs:(TEProfile*) otherProfile;
 @end

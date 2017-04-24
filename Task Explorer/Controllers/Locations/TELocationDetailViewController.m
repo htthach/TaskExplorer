@@ -16,6 +16,7 @@
 static NSString * const TEMapTableViewCellIdentifier = @"TEMapTableViewCellIdentifier";
 static NSString * const TEProfileTableViewCellIdentifier = @"TEProfileTableViewCellIdentifier";
 static NSString * const TEActivityTableViewCellIdentifier = @"TEActivityTableViewCellIdentifier";
+static NSString * const TETableViewSectionHeaderViewIdentifier = @"TETableViewSectionHeaderViewIdentifier";
 
 //If we want more control on biz logic with sections, it's better if we create section control in logic with dynamic section construction
 //for now, do simple section
@@ -26,6 +27,7 @@ static int const TE_TOTAL_SECTION_COUNT     = 3;
 
 @interface TELocationDetailViewController ()<UITableViewDelegate, UITableViewDataSource, TELocationDetailLogicDelegate>
 @property (nonatomic, strong) UITableView               *tableView;
+@property (nonatomic, strong) id<TEImageProvider>       imageProvider;
 @property (nonatomic, strong) TELocationDetailLogic     *locationLogic;
 
 @end
@@ -33,27 +35,36 @@ static int const TE_TOTAL_SECTION_COUNT     = 3;
 @implementation TELocationDetailViewController
 
 /**
- Factory method to return an instance of this view controller utilizing the given data provider
+ Factory method to return an instance of this view controller utilizing the given data & image provider
  
  @param dataProvider data provider to talk to API
+ @param imageProvider image provider to download image from api
  @param location     initial location object
  @return an instance of TELocationDetailViewController
  */
-+(instancetype) viewControllerWithDataProvider:(id<TEDataProvider>) dataProvider location:(TELocation*) location{
-    return [[TELocationDetailViewController alloc] initWithDataProvider:dataProvider location:location];
++(instancetype) viewControllerWithDataProvider:(id<TEDataProvider>) dataProvider
+                                 imageProvider:(id<TEImageProvider>) imageProvider
+                                      location:(TELocation*) location{
+    return [[TELocationDetailViewController alloc] initWithDataProvider:dataProvider
+                                                          imageProvider:imageProvider
+                                                               location:location];
 }
 
 /**
  Initialize with basic location list logic
  
  @param dataProvider data provider to talk to API
+ @param imageProvider image provider to download image from api
  @param location     initial location object
  @return an instance of TELocationDetailViewController
  */
--(instancetype)initWithDataProvider:(id<TEDataProvider>) dataProvider location:(TELocation*) location{
+-(instancetype)initWithDataProvider:(id<TEDataProvider>) dataProvider
+                      imageProvider:(id<TEImageProvider>) imageProvider
+                           location:(TELocation*) location{
     self = [super init];
     if (self) {
         self.locationLogic = [[TELocationDetailLogic alloc] initWithDataProvider:dataProvider delegate:self location:location];
+        self.imageProvider = imageProvider;
     }
     return self;
 }
@@ -100,13 +111,37 @@ static int const TE_TOTAL_SECTION_COUNT     = 3;
     [self.tableView registerNib:[TEMapTableViewCell nib] forCellReuseIdentifier:TEMapTableViewCellIdentifier];
     [self.tableView registerNib:[TEProfileTableViewCell nib] forCellReuseIdentifier:TEProfileTableViewCellIdentifier];
     [self.tableView registerNib:[TEActivityTableViewCell nib] forCellReuseIdentifier:TEActivityTableViewCellIdentifier];
+    [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:TETableViewSectionHeaderViewIdentifier];
+}
+#pragma mark - functional methods
+-(NSString*) nameForSection:(NSInteger) section{
+    if (section == TE_MAP_SECTION_INDEX) {
+        return NSLocalizedString(@"Map", @"Map");
+    }
+    if (section == TE_WORKER_SECTION_INDEX) {
+        return NSLocalizedString(@"Top Runners", @"Top Runners");
+    }
+    if (section == TE_ACTIVITY_SECTION_INDEX) {
+        return NSLocalizedString(@"Recent Activities", @"Recent Activities");
+    }
+    return @"";
 }
 #pragma mark - TELocationDetailLogicDelegate
 -(void)locationDetailDidUpdateWorkerAtIndex:(NSInteger)workerIndex{
-    
+    [self.tableView reloadData];
+    return;
+    [UIView performWithoutAnimation:^{
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:workerIndex inSection:TE_WORKER_SECTION_INDEX];
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    }];
 }
 -(void)locationDetailDidUpdateActivityAtIndex:(NSInteger)activityIndex{
-    
+    [self.tableView reloadData];
+    return;
+    [UIView performWithoutAnimation:^{
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:activityIndex inSection:TE_ACTIVITY_SECTION_INDEX];
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    }];
 }
 -(void)locationDetailLogicDidEncounterError:(NSError *)error{
     [TEHelper showError:error inViewController:self];
@@ -137,10 +172,14 @@ static int const TE_TOTAL_SECTION_COUNT     = 3;
         return [tableView dequeueReusableCellWithIdentifier:TEMapTableViewCellIdentifier forIndexPath:indexPath];
     }
     if (indexPath.section == TE_WORKER_SECTION_INDEX) {
-        return [tableView dequeueReusableCellWithIdentifier:TEProfileTableViewCellIdentifier forIndexPath:indexPath];
+        TEProfileTableViewCell *profileCell = [tableView dequeueReusableCellWithIdentifier:TEProfileTableViewCellIdentifier forIndexPath:indexPath];
+        [profileCell showProfile:[self.locationLogic workerProfileToShowAtIndex:indexPath.row] withImageProvider:self.imageProvider];
+         return profileCell;
     }
     if (indexPath.section == TE_ACTIVITY_SECTION_INDEX) {
-        return [tableView dequeueReusableCellWithIdentifier:TEActivityTableViewCellIdentifier forIndexPath:indexPath];
+        TEActivityTableViewCell *activityCell = [tableView dequeueReusableCellWithIdentifier:TEActivityTableViewCellIdentifier forIndexPath:indexPath];
+        [activityCell showActivity:[self.locationLogic activityToShowAtIndex:indexPath.row] withImageProvider:self.imageProvider];
+        return activityCell;
     }
     
     //not recognized
@@ -152,5 +191,14 @@ static int const TE_TOTAL_SECTION_COUNT     = 3;
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return UITableViewAutomaticDimension;
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 30.0;
+}
+//for simplicity just return a label
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UITableViewHeaderFooterView *sectionHeaderView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:TETableViewSectionHeaderViewIdentifier];
+    sectionHeaderView.textLabel.text = [self nameForSection:section];
+    return sectionHeaderView;
+}
 @end

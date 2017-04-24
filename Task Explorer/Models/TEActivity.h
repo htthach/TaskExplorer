@@ -28,4 +28,5 @@
  @return Message that was populated with proper info on task and profile
  */
 -(NSString*) populatedActivityMessage;
+
 @end

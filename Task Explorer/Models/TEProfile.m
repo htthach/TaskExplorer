@@ -21,4 +21,18 @@
     [keyMap setObject:@"profileDescription" forKey:@"description"];
     return keyMap;
 }
+
+/**
+ Check if this profile is same as another one
+ 
+ @param otherProfile the profile to compare to
+ @return YES if same profile id, NO otherwise.
+ */
+-(BOOL) isSameProfileAs:(TEProfile*) otherProfile{
+    if (!otherProfile.profileId) {
+        return NO;
+    }
+    
+    return [self.profileId isEqualToNumber:otherProfile.profileId];
+}
 @end

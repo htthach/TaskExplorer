@@ -25,7 +25,8 @@
 
 -(UIViewController*) demoHome{
     //For now the first thing user see is the Search Page under a navigation controller
-    TELocationListViewController *locationListVC = [TELocationListViewController viewControllerWithDataProvider:[TEAPIDataProvider sharedDefaultProvider]];
+    TELocationListViewController *locationListVC = [TELocationListViewController viewControllerWithDataProvider:[TEAPIDataProvider sharedDefaultProvider]
+                                                                                                  imageProvider:[TEAPIDataProvider sharedDefaultProvider]];
     return [[UINavigationController alloc] initWithRootViewController:locationListVC];
 }
 

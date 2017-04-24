@@ -10,7 +10,7 @@
 #import "TEDataProvider.h"
 #import "TELocationList.h"
 @interface TELocationListLogic ()
-@property (nonatomic, strong) id<TEDataProvider>    dataProvider;
+
 @property (nonatomic, strong) TELocationList        *locationList;
 @end
 @implementation TELocationListLogic

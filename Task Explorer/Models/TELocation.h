@@ -17,7 +17,7 @@
 
 @property (nonatomic, copy) NSString    *displayName;
 
-@property (nonatomic, strong) NSArray <NSNumber*>           *workerId;
+@property (nonatomic, strong) NSArray <NSNumber*>           *workerIds;
 @property (nonatomic, strong) NSArray <TEActivity*>         *recentActivity;
 
 @property (nonatomic, strong) NSMutableArray <TEProfile*>   *workerProfiles;
@@ -58,4 +58,15 @@
  @return the activity at an index
  */
 -(TEActivity*) activityAtIndex:(NSInteger) index;
+
+
+/**
+ Update worker profile for a worker at an index
+
+ @param profile new profile to update
+ @param index index of the worker
+ */
+-(void) updateWorkerProfile:(TEProfile*) profile atIndex:(NSInteger) index;
+
+
 @end

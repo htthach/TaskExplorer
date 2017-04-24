@@ -14,6 +14,8 @@
 
 #import "TELocationList.h"
 #import "TELocation.h"
+#import "TEProfile.h"
+#import "TETask.h"
 
 static NSString * const TE_ENDPOINT_LOCATION_LIST   = @"locations";
 static NSString * const TE_ENDPOINT_LOCATION        = @"location";
@@ -305,6 +307,7 @@ static NSString * const TE_NETWORK_ERROR_DOMAIN             = @"com.taskexplorer
                       ];
     return error;
 }
+
 #pragma mark - Implementation of TEDataProvider
 /**
  Load all locations available
@@ -350,6 +353,60 @@ static NSString * const TE_NETWORK_ERROR_DOMAIN             = @"com.taskexplorer
       success:success
          fail:fail];
 }
+
+/**
+ Load a profile detail from profile id
+ 
+ @param profileId the id of the profile to load
+ @param success success callback block
+ @param fail    failure callback block
+ */
+-(void) loadProfileDetailWithId:(NSNumber*) profileId
+                        success:(void (^)(TEProfile *result)) success
+                           fail:(void (^)(NSError *error)) fail{
+    //check if valid parameters
+    if ([TEHelper isEmptyString:profileId.stringValue]) {
+        if (fail) {
+            fail ([TEAPIDataProvider invalidRequestParamError:NSLocalizedString(@"Missing profile id", @"Missing profile id")]);
+        }
+        return;
+    }
+    
+    [self GET:[self endPointWithComponent:@[TE_ENDPOINT_PROFILE, profileId.stringValue]
+                                  queries:nil
+                             responseType:TE_ENDPOINT_RESPONSE_TYPE
+               ]
+   returnType:[TEProfile class]
+      success:success
+         fail:fail];
+}
+
+/**
+ Load a task detail from task id
+ 
+ @param taskId the id of the task to load
+ @param success success callback block
+ @param fail    failure callback block
+ */
+-(void) loadTaskDetailWithId:(NSNumber*) taskId
+                     success:(void (^)(TETask *result)) success
+                        fail:(void (^)(NSError *error)) fail{
+    //check if valid parameters
+    if ([TEHelper isEmptyString:taskId.stringValue]) {
+        if (fail) {
+            fail ([TEAPIDataProvider invalidRequestParamError:NSLocalizedString(@"Missing task id", @"Missing task id")]);
+        }
+        return;
+    }
+    
+    [self GET:[self endPointWithComponent:@[TE_ENDPOINT_TASK, taskId.stringValue]
+                                  queries:nil
+                             responseType:TE_ENDPOINT_RESPONSE_TYPE
+               ]
+   returnType:[TETask class]
+      success:success
+         fail:fail];
+}
 #pragma mark - Implementation of TEImageProvider
 
 /**
@@ -362,6 +419,13 @@ static NSString * const TE_NETWORK_ERROR_DOMAIN             = @"com.taskexplorer
 -(void) downloadImageForEndpoint:(NSString*) photoEndpoint
                          success:(void (^)(UIImage *image)) success
                             fail:(void (^)(NSError *error)) fail{
+    if ([TEHelper isEmptyString:photoEndpoint]) {
+        if (fail) {
+            fail([TEAPIDataProvider invalidRequestParamError:NSLocalizedString(@"Missing image url", @"Missing image url")]);
+        }
+        return;
+    }
+    
     NSURL *imageUrl = [self imageFullURLFromEndpoint:photoEndpoint];
     [self downloadImageFromUrl:imageUrl success:success fail:fail];
 }

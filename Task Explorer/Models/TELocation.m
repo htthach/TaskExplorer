@@ -7,7 +7,7 @@
 //
 
 #import "TELocation.h"
-#import "TETask.h"
+#import "TEActivity.h"
 #import "TEProfile.h"
 @implementation TELocation
 #pragma mark - override methods
@@ -30,23 +30,23 @@
  @return class of the array's elements
  */
 -(Class) getClassForArrayName:(NSString*) arrayName{
-    if ([arrayName isEqualToString:@"workerId"]) {
+    if ([arrayName isEqualToString:@"workerIds"]) {
         return [NSNumber class];
     }
     if ([arrayName isEqualToString:@"recentActivity"]) {
-        return [TETask class];
+        return [TEActivity class];
     }
     
     return [super getClassForArrayName:arrayName];
 }
 
 //override worker id array setter
--(void)setWorkerId:(NSArray<NSNumber *> *)workerId{
-    _workerId = workerId;
+-(void)setWorkerIds:(NSArray<NSNumber *> *)workerIds{
+    _workerIds = workerIds;
     _workerProfiles = [NSMutableArray array];
-    for (int i = 0; i < [workerId count]; i++) {
+    for (int i = 0; i < [workerIds count]; i++) {
         TEProfile *workerProfile = [TEProfile new];
-        workerProfile.profileId = workerId[i];
+        workerProfile.profileId = workerIds[i];
         [_workerProfiles addObject:workerProfile];
     }
 }
@@ -61,7 +61,7 @@
         return [self.workerProfiles count];
     }
     else {
-        return [self.workerId count];
+        return [self.workerIds count];
     }
 }
 
@@ -72,8 +72,8 @@
  @return the worker id at an index
  */
 -(NSNumber*) workerIdAtIndex:(NSInteger) index{
-    if (index >= 0 && index < [self.workerId count]) {
-        return self.workerId[index];
+    if (index >= 0 && index < [self.workerIds count]) {
+        return self.workerIds[index];
     }
     return nil;
 }
@@ -111,5 +111,17 @@
         return self.recentActivity[index];
     }
     return nil;
+}
+
+/**
+ Update worker profile for a worker at an index
+ 
+ @param profile new profile to update
+ @param index index of the worker
+ */
+-(void) updateWorkerProfile:(TEProfile*) profile atIndex:(NSInteger) index{
+    if (index >= 0 && index < [self numberOfWorkers]) {
+        [self.workerProfiles replaceObjectAtIndex:index withObject:profile];
+    }
 }
 @end
