@@ -15,6 +15,7 @@
 @protocol TEDataProvider;
 
 @protocol TELocationDetailLogicDelegate <NSObject>
+-(void) locationDetailDidUpdate;
 -(void) locationDetailDidUpdateWorkerAtIndex:(NSInteger) workerIndex;
 -(void) locationDetailDidUpdateActivityAtIndex:(NSInteger) activityIndex;
 -(void) locationDetailLogicDidEncounterError:(NSError*) error;

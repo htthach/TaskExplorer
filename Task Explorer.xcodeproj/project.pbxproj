@@ -36,8 +36,6 @@
 		6F3789DF1EACC4DB00FF4B35 /* TEMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789DE1EACC4DB00FF4B35 /* TEMemoryCache.m */; };
 		6F3789E31EAD08DA00FF4B35 /* TEActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789E11EAD08DA00FF4B35 /* TEActivityTableViewCell.m */; };
 		6F3789E41EAD08DA00FF4B35 /* TEActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F3789E21EAD08DA00FF4B35 /* TEActivityTableViewCell.xib */; };
-		6F3789E81EAD16BF00FF4B35 /* TEMapTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789E61EAD16BF00FF4B35 /* TEMapTableViewCell.m */; };
-		6F3789E91EAD16BF00FF4B35 /* TEMapTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F3789E71EAD16BF00FF4B35 /* TEMapTableViewCell.xib */; };
 		6F3789EC1EAE6DAD00FF4B35 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3789EB1EAE6DAD00FF4B35 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -118,9 +116,6 @@
 		6F3789E01EAD08DA00FF4B35 /* TEActivityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEActivityTableViewCell.h; sourceTree = "<group>"; };
 		6F3789E11EAD08DA00FF4B35 /* TEActivityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEActivityTableViewCell.m; sourceTree = "<group>"; };
 		6F3789E21EAD08DA00FF4B35 /* TEActivityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TEActivityTableViewCell.xib; sourceTree = "<group>"; };
-		6F3789E51EAD16BF00FF4B35 /* TEMapTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEMapTableViewCell.h; sourceTree = "<group>"; };
-		6F3789E61EAD16BF00FF4B35 /* TEMapTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEMapTableViewCell.m; sourceTree = "<group>"; };
-		6F3789E71EAD16BF00FF4B35 /* TEMapTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TEMapTableViewCell.xib; sourceTree = "<group>"; };
 		6F3789EB1EAE6DAD00FF4B35 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -300,9 +295,6 @@
 				6F3789E01EAD08DA00FF4B35 /* TEActivityTableViewCell.h */,
 				6F3789E11EAD08DA00FF4B35 /* TEActivityTableViewCell.m */,
 				6F3789E21EAD08DA00FF4B35 /* TEActivityTableViewCell.xib */,
-				6F3789E51EAD16BF00FF4B35 /* TEMapTableViewCell.h */,
-				6F3789E61EAD16BF00FF4B35 /* TEMapTableViewCell.m */,
-				6F3789E71EAD16BF00FF4B35 /* TEMapTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -406,6 +398,7 @@
 				TargetAttributes = {
 					6F37895B1EAC45C600FF4B35 = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 4FKQCS6555;
 						ProvisioningStyle = Automatic;
 					};
 					6F3789741EAC45C600FF4B35 = {
@@ -451,7 +444,6 @@
 				6F37896F1EAC45C600FF4B35 /* LaunchScreen.storyboard in Resources */,
 				6F37896C1EAC45C600FF4B35 /* Assets.xcassets in Resources */,
 				6F3789A51EAC570800FF4B35 /* TELocationTableViewCell.xib in Resources */,
-				6F3789E91EAD16BF00FF4B35 /* TEMapTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,7 +483,6 @@
 				6F3789A91EAC572000FF4B35 /* TEProfileTableViewCell.m in Sources */,
 				6F3789B21EAC580200FF4B35 /* TEHelper.m in Sources */,
 				6F3789D01EAC5D5B00FF4B35 /* TEProfile.m in Sources */,
-				6F3789E81EAD16BF00FF4B35 /* TEMapTableViewCell.m in Sources */,
 				6F3789CA1EAC5CFF00FF4B35 /* TEBaseModel.m in Sources */,
 				6F3789C21EAC59C700FF4B35 /* TEAPIDataProvider.m in Sources */,
 				6F3789611EAC45C600FF4B35 /* main.m in Sources */,
@@ -640,6 +631,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4FKQCS6555;
 				INFOPLIST_FILE = "Task Explorer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "hinhtinhthach.Task-Explorer";
@@ -651,6 +643,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4FKQCS6555;
 				INFOPLIST_FILE = "Task Explorer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "hinhtinhthach.Task-Explorer";
@@ -723,6 +716,7 @@
 				6F37898B1EAC45C600FF4B35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6F37898C1EAC45C600FF4B35 /* Build configuration list for PBXNativeTarget "Task ExplorerTests" */ = {
 			isa = XCConfigurationList;
@@ -731,6 +725,7 @@
 				6F37898E1EAC45C600FF4B35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6F37898F1EAC45C600FF4B35 /* Build configuration list for PBXNativeTarget "Task ExplorerUITests" */ = {
 			isa = XCConfigurationList;
@@ -739,6 +734,7 @@
 				6F3789911EAC45C600FF4B35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

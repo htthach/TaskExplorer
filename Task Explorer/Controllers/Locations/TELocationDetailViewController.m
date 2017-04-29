@@ -9,11 +9,13 @@
 #import "TELocationDetailViewController.h"
 #import "TELocationDetailLogic.h"
 #import "TEHelper.h"
-#import "TEMapTableViewCell.h"
 #import "TEProfileTableViewCell.h"
 #import "TEActivityTableViewCell.h"
 #import "TELocation.h"
 #import "TEUITheme.h"
+#import <MapKit/MapKit.h>
+
+
 static NSString * const TEMapTableViewCellIdentifier = @"TEMapTableViewCellIdentifier";
 static NSString * const TEProfileTableViewCellIdentifier = @"TEProfileTableViewCellIdentifier";
 static NSString * const TEActivityTableViewCellIdentifier = @"TEActivityTableViewCellIdentifier";
@@ -22,16 +24,15 @@ static CGFloat  const TEMapHeight = 150;
 
 //If we want more control on biz logic with sections, it's better if we create section control in logic with dynamic section construction
 //for now, do simple section
-static int const TE_MAP_SECTION_INDEX       = 0;
-static int const TE_WORKER_SECTION_INDEX    = 1;
-static int const TE_ACTIVITY_SECTION_INDEX  = 2;
-static int const TE_TOTAL_SECTION_COUNT     = 3;
+static int const TE_WORKER_SECTION_INDEX    = 0;
+static int const TE_ACTIVITY_SECTION_INDEX  = 1;
+static int const TE_TOTAL_SECTION_COUNT     = 2;
 
 @interface TELocationDetailViewController ()<UITableViewDelegate, UITableViewDataSource, TELocationDetailLogicDelegate>
 @property (nonatomic, strong) UITableView               *tableView;
 @property (nonatomic, strong) id<TEImageProvider>       imageProvider;
 @property (nonatomic, strong) TELocationDetailLogic     *locationLogic;
-
+@property (nonatomic, strong) IBOutlet MKMapView        *mapView;
 @end
 
 @implementation TELocationDetailViewController
@@ -105,21 +106,20 @@ static int const TE_TOTAL_SECTION_COUNT     = 3;
 }
 
 -(void) setupTableView{
+    
+    self.mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, TEMapHeight)];
+    self.tableView.tableHeaderView = self.mapView;
     self.tableView.backgroundColor = [UIColor whiteColor];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    [self.tableView registerNib:[TEMapTableViewCell nib] forCellReuseIdentifier:TEMapTableViewCellIdentifier];
     [self.tableView registerNib:[TEProfileTableViewCell nib] forCellReuseIdentifier:TEProfileTableViewCellIdentifier];
     [self.tableView registerNib:[TEActivityTableViewCell nib] forCellReuseIdentifier:TEActivityTableViewCellIdentifier];
     [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:TETableViewSectionHeaderViewIdentifier];
 }
 #pragma mark - functional methods
 -(NSString*) nameForSection:(NSInteger) section{
-    if (section == TE_MAP_SECTION_INDEX) {
-        return NSLocalizedString(@"Map", @"Map");
-    }
     if (section == TE_WORKER_SECTION_INDEX) {
         return NSLocalizedString(@"Top Runners", @"Top Runners");
     }
@@ -128,12 +128,33 @@ static int const TE_TOTAL_SECTION_COUNT     = 3;
     }
     return @"";
 }
+/**
+ Show a coordinate (latitude and longitude) in the map of this cell
+ 
+ @param coordinate coordinate to show
+ 
+ */
+-(void) showCoordinate:(CLLocationCoordinate2D) coordinate{
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance (coordinate, 2000, 2000);
+    [self.mapView setRegion:region animated:NO];
+}
 #pragma mark - TELocationDetailLogicDelegate
--(void)locationDetailDidUpdateWorkerAtIndex:(NSInteger)workerIndex{
+-(void)locationDetailDidUpdate{
     [self.tableView reloadData];
+    [self showCoordinate:[self.locationLogic coordinateOfLocation]];
+}
+-(void)locationDetailDidUpdateWorkerAtIndex:(NSInteger)workerIndex{
+    [UIView performWithoutAnimation:^{
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:workerIndex inSection:TE_WORKER_SECTION_INDEX];
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    }];
+    
 }
 -(void)locationDetailDidUpdateActivityAtIndex:(NSInteger)activityIndex{
-    [self.tableView reloadData];
+    [UIView performWithoutAnimation:^{
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:activityIndex inSection:TE_ACTIVITY_SECTION_INDEX];
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    }];
 }
 -(void)locationDetailLogicDidEncounterError:(NSError *)error{
     [TEHelper showError:error inViewController:self];
@@ -146,9 +167,6 @@ static int const TE_TOTAL_SECTION_COUNT     = 3;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (section == TE_MAP_SECTION_INDEX) {
-        return 1; //only one row for map
-    }
     if (section == TE_WORKER_SECTION_INDEX) {
         return [self.locationLogic numberOfWorkerToShow];
     }
@@ -160,17 +178,16 @@ static int const TE_TOTAL_SECTION_COUNT     = 3;
     return 0;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == TE_MAP_SECTION_INDEX) {
-        TEMapTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TEMapTableViewCellIdentifier forIndexPath:indexPath];
-        [cell showCoordinate:[self.locationLogic coordinateOfLocation]];
-    }
+    
     if (indexPath.section == TE_WORKER_SECTION_INDEX) {
         TEProfileTableViewCell *profileCell = [tableView dequeueReusableCellWithIdentifier:TEProfileTableViewCellIdentifier forIndexPath:indexPath];
+        profileCell.selectionStyle = UITableViewCellSelectionStyleNone;
         [profileCell showProfile:[self.locationLogic workerProfileToShowAtIndex:indexPath.row] withImageProvider:self.imageProvider];
          return profileCell;
     }
     if (indexPath.section == TE_ACTIVITY_SECTION_INDEX) {
         TEActivityTableViewCell *activityCell = [tableView dequeueReusableCellWithIdentifier:TEActivityTableViewCellIdentifier forIndexPath:indexPath];
+        activityCell.selectionStyle = UITableViewCellSelectionStyleNone;
         [activityCell showActivity:[self.locationLogic activityToShowAtIndex:indexPath.row] withImageProvider:self.imageProvider];
         return activityCell;
     }
@@ -179,27 +196,26 @@ static int const TE_TOTAL_SECTION_COUNT     = 3;
     return [UITableViewCell new];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == TE_MAP_SECTION_INDEX) {
-        return TEMapHeight;
-    }
     return UITableViewAutomaticDimension;
 }
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == TE_MAP_SECTION_INDEX) {
-        return TEMapHeight;
-    }
     return UITableViewAutomaticDimension;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 40.0;
 }
-//for simplicity just return a label
+//for simplicity just return a default header with text
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UITableViewHeaderFooterView *sectionHeaderView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:TETableViewSectionHeaderViewIdentifier];
     sectionHeaderView.textLabel.text = [self nameForSection:section];
+    return sectionHeaderView;
+}
+
+//sometime changing font of default header in viewForHeaderInSection doesn't work
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
+    UITableViewHeaderFooterView *sectionHeaderView = (UITableViewHeaderFooterView *)view;
     sectionHeaderView.textLabel.textColor = [TEUITheme primaryColorDark];
     sectionHeaderView.textLabel.font = [UIFont boldSystemFontOfSize:20];
-    return sectionHeaderView;
 }
 @end

@@ -189,7 +189,7 @@ static NSString * const TE_NETWORK_ERROR_DOMAIN             = @"com.taskexplorer
                         fail:(void (^)(NSError *error)) fail{
     
     //check if in cache
-    id cachedResponse = [self.apiResponseCache getObjectForKey:imageUrl.absoluteString];
+    id cachedResponse = [self.imageCache getObjectForKey:imageUrl.absoluteString];
     if (cachedResponse) {
         if (success) {
             success(cachedResponse);

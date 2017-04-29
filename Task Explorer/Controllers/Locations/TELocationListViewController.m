@@ -127,6 +127,7 @@ static NSString * const TELocationTableViewCellIdentifier = @"TELocationTableVie
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     TELocationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TELocationTableViewCellIdentifier forIndexPath:indexPath];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell showLocation:[self.listLogic locationToShowAtIndex:indexPath.row]];
     return cell;
 }

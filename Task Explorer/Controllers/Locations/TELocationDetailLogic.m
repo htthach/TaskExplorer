@@ -40,6 +40,7 @@
 -(void) loadLocationDetail{
     [self.dataProvider loadLocationDetailWithId:self.location.locationId success:^(TELocation *result) {
         self.location = result;
+        [self.delegate locationDetailDidUpdate];
         [self loadWorkerDetails];
         [self loadActivityDetails];
     } fail:^(NSError *error) {
