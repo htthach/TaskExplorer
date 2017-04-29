@@ -279,7 +279,11 @@ static NSString * const TE_NETWORK_ERROR_DOMAIN             = @"com.taskexplorer
              ];
         }
     }
-    fullEndpoint.queryItems = queryItems;
+    
+    if ([queryItems count] > 0) {
+        fullEndpoint.queryItems = queryItems;
+    }
+    
 
     return fullEndpoint.URL.absoluteString;
 }

@@ -37,6 +37,11 @@
 		6F3789E31EAD08DA00FF4B35 /* TEActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3789E11EAD08DA00FF4B35 /* TEActivityTableViewCell.m */; };
 		6F3789E41EAD08DA00FF4B35 /* TEActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F3789E21EAD08DA00FF4B35 /* TEActivityTableViewCell.xib */; };
 		6F3789EC1EAE6DAD00FF4B35 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3789EB1EAE6DAD00FF4B35 /* MapKit.framework */; };
+		E1EC06AC1EB49AEA0035F4C9 /* TELocationListLogicTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EC06AB1EB49AEA0035F4C9 /* TELocationListLogicTest.m */; };
+		E1EC06AE1EB49B2F0035F4C9 /* TELocationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EC06AD1EB49B2F0035F4C9 /* TELocationTest.m */; };
+		E1EC06B01EB49B560035F4C9 /* TEAPIDataProviderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EC06AF1EB49B560035F4C9 /* TEAPIDataProviderTest.m */; };
+		E1EC06B21EB49B810035F4C9 /* TEJSONParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EC06B11EB49B810035F4C9 /* TEJSONParserTest.m */; };
+		E1EC06B91EB4A08D0035F4C9 /* TEMockNSURLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EC06B81EB4A08D0035F4C9 /* TEMockNSURLSession.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +122,12 @@
 		6F3789E11EAD08DA00FF4B35 /* TEActivityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEActivityTableViewCell.m; sourceTree = "<group>"; };
 		6F3789E21EAD08DA00FF4B35 /* TEActivityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TEActivityTableViewCell.xib; sourceTree = "<group>"; };
 		6F3789EB1EAE6DAD00FF4B35 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		E1EC06AB1EB49AEA0035F4C9 /* TELocationListLogicTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TELocationListLogicTest.m; sourceTree = "<group>"; };
+		E1EC06AD1EB49B2F0035F4C9 /* TELocationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TELocationTest.m; sourceTree = "<group>"; };
+		E1EC06AF1EB49B560035F4C9 /* TEAPIDataProviderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEAPIDataProviderTest.m; sourceTree = "<group>"; };
+		E1EC06B11EB49B810035F4C9 /* TEJSONParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEJSONParserTest.m; sourceTree = "<group>"; };
+		E1EC06B71EB4A08D0035F4C9 /* TEMockNSURLSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEMockNSURLSession.h; sourceTree = "<group>"; };
+		E1EC06B81EB4A08D0035F4C9 /* TEMockNSURLSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEMockNSURLSession.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +180,7 @@
 		6F37895E1EAC45C600FF4B35 /* Task Explorer */ = {
 			isa = PBXGroup;
 			children = (
+				E1EC06B31EB4A05F0035F4C9 /* Mocks */,
 				6F3789921EAC524800FF4B35 /* Controllers */,
 				6F3789941EAC524800FF4B35 /* Helpers */,
 				6F3789951EAC524800FF4B35 /* Models */,
@@ -196,6 +208,9 @@
 		6F3789781EAC45C600FF4B35 /* Task ExplorerTests */ = {
 			isa = PBXGroup;
 			children = (
+				E1EC06A01EB49A5D0035F4C9 /* Logics */,
+				E1EC06A21EB49A5D0035F4C9 /* Models */,
+				E1EC06A41EB49A5D0035F4C9 /* Services */,
 				6F3789791EAC45C600FF4B35 /* Task_ExplorerTests.m */,
 				6F37897B1EAC45C600FF4B35 /* Info.plist */,
 			);
@@ -329,6 +344,40 @@
 				6F3789EB1EAE6DAD00FF4B35 /* MapKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E1EC06A01EB49A5D0035F4C9 /* Logics */ = {
+			isa = PBXGroup;
+			children = (
+				E1EC06AB1EB49AEA0035F4C9 /* TELocationListLogicTest.m */,
+			);
+			path = Logics;
+			sourceTree = "<group>";
+		};
+		E1EC06A21EB49A5D0035F4C9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E1EC06AD1EB49B2F0035F4C9 /* TELocationTest.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E1EC06A41EB49A5D0035F4C9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E1EC06AF1EB49B560035F4C9 /* TEAPIDataProviderTest.m */,
+				E1EC06B11EB49B810035F4C9 /* TEJSONParserTest.m */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E1EC06B31EB4A05F0035F4C9 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				E1EC06B71EB4A08D0035F4C9 /* TEMockNSURLSession.h */,
+				E1EC06B81EB4A08D0035F4C9 /* TEMockNSURLSession.m */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -489,6 +538,7 @@
 				6F3789D91EAC600D00FF4B35 /* TEActivity.m in Sources */,
 				6F3789D61EAC5D7600FF4B35 /* TELocationList.m in Sources */,
 				6F3789BF1EAC596E00FF4B35 /* TEJSONParser.m in Sources */,
+				E1EC06B91EB4A08D0035F4C9 /* TEMockNSURLSession.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,7 +546,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1EC06AC1EB49AEA0035F4C9 /* TELocationListLogicTest.m in Sources */,
+				E1EC06B01EB49B560035F4C9 /* TEAPIDataProviderTest.m in Sources */,
 				6F37897A1EAC45C600FF4B35 /* Task_ExplorerTests.m in Sources */,
+				E1EC06AE1EB49B2F0035F4C9 /* TELocationTest.m in Sources */,
+				E1EC06B21EB49B810035F4C9 /* TEJSONParserTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
